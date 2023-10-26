@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.jacobking.simpleticket.gui.view.combobox.EmployeeComboBox?>
+<?import io.jacobking.simpleticket.gui.view.combobox.PriorityComboBox?>
+<?import io.jacobking.simpleticket.gui.view.combobox.StatusComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="748.0" stylesheets="@styles/ticket_viewer.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="57.0" prefWidth="748.0" styleClass="header">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="183.0" layoutY="3.0" prefHeight="17.0" prefWidth="382.0" styleClass="header-label" text="Ticket Viewer" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <ScrollPane fx:id="commentsScrollPane" hbarPolicy="NEVER" layoutX="5.0" layoutY="98.0" prefHeight="225.0" prefWidth="738.0">
+         <content>
+            <VBox fx:id="scrollVBox" prefHeight="224.0" prefWidth="736.0" />
+         </content>
+      </ScrollPane>
+      <TextField fx:id="commentField" layoutX="5.0" layoutY="330.0" prefHeight="25.0" prefWidth="658.0" />
+      <Button fx:id="postButton" disable="true" layoutX="675.0" layoutY="330.0" mnemonicParsing="false" onAction="#onPostComment" prefHeight="25.0" prefWidth="59.0" text="Post" />
+      <EmployeeComboBox fx:id="employeeBox" layoutX="20.0" layoutY="461.0" prefHeight="25.0" prefWidth="105.0" />
+      <StatusComboBox fx:id="statusBox" layoutX="312.0" layoutY="404.0" prefHeight="25.0" prefWidth="135.0" />
+      <PriorityComboBox fx:id="priorityBox" layoutX="312.0" layoutY="373.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="createdField" disable="true" layoutX="88.0" layoutY="404.0" />
+      <TextField fx:id="idField" disable="true" layoutX="88.0" layoutY="373.0" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="20.0" layoutY="377.0" prefHeight="17.0" prefWidth="64.0" styleClass="info-label" text="ID" textAlignment="RIGHT" />
+      <Label layoutX="20.0" layoutY="408.0" styleClass="info-label" text="Created On" />
+      <Separator layoutX="5.0" layoutY="362.0" prefHeight="0.0" prefWidth="738.0" />
+      <TextField fx:id="employeeIdField" layoutX="136.0" layoutY="461.0" />
+      <Label layoutX="20.0" layoutY="444.0" prefHeight="17.0" prefWidth="265.0" styleClass="info-label" text="Employee Information" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="237.0" layoutY="377.0" prefHeight="17.0" prefWidth="72.0" styleClass="info-label" text="Priority" textAlignment="RIGHT" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="237.0" layoutY="408.0" prefHeight="17.0" prefWidth="72.0" styleClass="info-label" text="Status" textAlignment="RIGHT" />
+      <Separator layoutX="457.0" layoutY="365.0" orientation="VERTICAL" prefHeight="138.0" prefWidth="9.0" />
+      <Button layoutX="466.0" layoutY="373.0" mnemonicParsing="false" onAction="#onSaveTicket" prefHeight="25.0" prefWidth="98.0" text="Save Ticket" />
+      <Button layoutX="466.0" layoutY="402.0" mnemonicParsing="false" onAction="#onUndoChanges" text="Undo Changes" />
+      <Button layoutX="466.0" layoutY="432.0" mnemonicParsing="false" onAction="#onDeleteTicket" prefHeight="25.0" prefWidth="98.0" styleClass="button-off" text="Delete Ticket" />
+      <Button disable="true" layoutX="466.0" layoutY="461.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" styleClass="button-offset" text="Export Ticket" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="14.0" layoutY="73.0" prefHeight="17.0" prefWidth="64.0" styleClass="info-label" text="Subject" textAlignment="RIGHT" />
+      <TextField fx:id="subjectField" disable="true" layoutX="88.0" layoutY="69.0" prefHeight="25.0" prefWidth="283.0" />
+      <Button layoutX="675.0" layoutY="462.0" mnemonicParsing="false" onAction="#onExit" prefHeight="25.0" prefWidth="59.0" text="Exit" />
+   </children>
+</AnchorPane>

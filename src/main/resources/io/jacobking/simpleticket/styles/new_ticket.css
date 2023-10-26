@@ -1,0 +1,17 @@
+@import url("core.css");
+@import url("button.css");
+
+.header {
+    -fx-background-color: -fx-offset;
+}
+
+.header-text {
+    -fx-text-fill: white;
+    -fx-font-weight: bolder;
+    -fx-font-size: 35px;
+}
+
+.field-labels {
+    -fx-text-fill: -fx-offset-darker;
+    -fx-font-weight: bolder;
+}

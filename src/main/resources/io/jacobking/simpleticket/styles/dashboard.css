@@ -1,0 +1,40 @@
+@import url("core.css");
+@import url("button.css");
+
+
+.sidebar {
+    -fx-background-color: -fx-offset;
+}
+
+.header {
+    -fx-font-weight: bolder;
+    -fx-text-fill: -fx-white;
+    -fx-font-size: 30px;
+}
+
+.header-version {
+    -fx-font-weight: bolder;
+    -fx-text-fill: -fx-contrast;
+    -fx-font-size: 20px;
+}
+
+.menu-label {
+    -fx-font-weight: bolder;
+    -fx-text-fill: -fx-white;
+    -fx-font-size: 18px;
+}
+
+.menu-pane:hover {
+    -fx-background-color: -fx-white;
+    -fx-cursor: hand;
+}
+
+.menu-label:hover {
+    -fx-text-fill: -fx-offset;
+}
+
+.active-pane {
+    -fx-background-color: white;
+    -fx-text-fill: -fx-offset;
+}
+
