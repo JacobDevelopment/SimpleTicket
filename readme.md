@@ -43,7 +43,7 @@ As of right now, there are two core features of SimpleTicket. This includes crea
 
 ### Tools used:
 - SceneBuilder to help develop the UI.
-- IntellIJ Ultimate
+- IntelliJ Ultimate
 
 ## License
 
@@ -58,5 +58,12 @@ To see the license, click <a href="https://github.com/JacobDevelopment/SimpleTic
 
 
 ## Roadmap
-### 1.0.0
-- [ ] None yet.
+### 1.0.0 (Production)
+- [ ] Dialog/Alert System
+  - [ ] Create a confirmation dialog that requests user confirmation when deleting table entries (e.g. departments, tickets, employees, etc.)
+  - [ ] Create an error alert when something goes wrong (or if you cannot do a certain action.)
+- [ ] Implement a logging system for more future debugging (SQL queries included, possibly? Nothing is "sensitive" information yet.)
+- [ ] Separate the management UI into a TabPane potentially.
+  - [ ] Other minor UI tweaks and clean-ups. I'm not creatively inclined.
+- [ ] Add checks to see if the database file & system.properties file already existed on new installation.
+    - [ ] We should also look into how we will roll-out new updates?
