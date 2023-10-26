@@ -17,8 +17,8 @@ A lightweight, open-sourced and user-friendly IT support ticket management appli
 ## Installation
 
 ------------------
-As of right now, SimpleTicket has only been tested on a <b>Windows 10</b> environment. There are plans to make it cross-platform and more accessible. SimpleTicket is still however in early production, and is only on a beta version standard right now.
-
+> [!IMPORTANT]
+> As of right now, the installation has only been tested on a Windows 10 environment. No cross-platform checks have been tested. If anyone is willing to test it on their own environment, please let me know. 
 ------------------
 
 ## Nerdy Information
@@ -28,7 +28,16 @@ As of right now, SimpleTicket has only been tested on a <b>Windows 10</b> enviro
 ## License
 
 ----------------
+To see the license, click <a href="https://github.com/JacobDevelopment/SimpleTicket/blob/development/LICENSE">here</a>.
 
 ## Changelog
 
+---------------
+### 1.0.0-beta
+- [ ] None yet.
 
+-------------------
+
+## Roadmap
+### 1.0.0
+- [ ] None yet.
