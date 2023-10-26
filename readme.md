@@ -19,6 +19,12 @@ A lightweight, open-sourced and user-friendly IT support ticket management appli
 > [!IMPORTANT]
 > As of right now, the installation has only been tested on a Windows 10 environment. No cross-platform checks have been tested. If anyone is willing to test it on their own environment, please let me know. 
 
+Head over to the latest releases, or click <a href="https://github.com/JacobDevelopment/SimpleTicket/tags">here.</a> Find the latest release denoted from the top, or download older versions. Right now we are standing at **1.0.0-beta.**
+
+Download the .msi installer, run it, select the directory you want the installation to store the files at. From there a shortcut and start-menu program will be created. Run the SimpleTicket.exe, and all of the necessary components will automatically be created in your user directory. 
+
+SimpleTicket utilizes the lightweight SQLite database for easy local storage to house your tickets and user management. It creates a basic database file and properties file to store configurations. 
+
 ## Current Features
 As of right now, there are two core features of SimpleTicket. This includes creating tickets, and managing the workspace. This includes multiple companies, employees, and departments (per company basis). Regarding the ticket system, you can add comments to each ticket and other additional information. Checkout the interfaces below.
 <details>

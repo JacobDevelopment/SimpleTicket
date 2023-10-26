@@ -13,7 +13,7 @@
       <AnchorPane prefHeight="800.0" prefWidth="200.0" styleClass="sidebar">
          <children>
             <Label layoutX="9.0" styleClass="header" text="SimpleTicket" />
-            <Label layoutX="36.0" layoutY="38.0" styleClass="header-version" text="v1.0.0" />
+            <Label fx:id="versionLabel" layoutX="36.0" layoutY="38.0" styleClass="header-version" text="undefined" />
             <AnchorPane layoutY="271.0" prefHeight="229.0" prefWidth="200.0">
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="229.0" prefWidth="200.0">

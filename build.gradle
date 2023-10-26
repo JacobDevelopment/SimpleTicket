@@ -53,7 +53,8 @@ jlink {
         installerOptions += [
                 '--win-per-user-install', '--win-dir-chooser',
                 '--win-menu', '--win-shortcut',
-                '--vendor', 'Jacob King'
+                '--vendor', 'Jacob King',
+                '--app-version', '1.0.0'
         ]
     }
 }

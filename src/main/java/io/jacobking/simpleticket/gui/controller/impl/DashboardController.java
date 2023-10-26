@@ -1,6 +1,7 @@
 package io.jacobking.simpleticket.gui.controller.impl;
 
 import io.jacobking.simpleticket.core.SimpleTicket;
+import io.jacobking.simpleticket.core.Version;
 import io.jacobking.simpleticket.gui.controller.Controller;
 import io.jacobking.simpleticket.gui.model.MenuModel;
 import io.jacobking.simpleticket.gui.navigation.Navigation;
@@ -8,6 +9,7 @@ import io.jacobking.simpleticket.gui.navigation.Route;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -27,6 +29,8 @@ public class DashboardController extends Controller {
 
     @FXML private AnchorPane ticketAnchor;
     @FXML private AnchorPane managementAnchor;
+
+    @FXML private Label versionLabel;
 
     public DashboardController() {
         super(Navigation.getInstance());
@@ -48,6 +52,8 @@ public class DashboardController extends Controller {
             oldValue.disable();
             newValue.enable();
         }));
+
+        versionLabel.setText(Version.getCurrent());
     }
 
 
