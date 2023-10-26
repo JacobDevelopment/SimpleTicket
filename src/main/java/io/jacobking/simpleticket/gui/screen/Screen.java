@@ -1,22 +1,27 @@
 package io.jacobking.simpleticket.gui.screen;
 
 import io.jacobking.simpleticket.App;
+import io.jacobking.simpleticket.core.Version;
 import io.jacobking.simpleticket.gui.controller.Controller;
 import io.jacobking.simpleticket.gui.navigation.Route;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.apache.commons.io.IOUtils;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
 public abstract class Screen {
 
-    private static final String TITLE = "Tickster";
+    private static final String ICON_PATH = "icons/icon.png";
+    private static final String TITLE = String.format("SimpleTicket - %s", Version.getCurrent());
     private final Route route;
     private Controller controller;
 
@@ -56,7 +61,7 @@ public abstract class Screen {
         }
 
 
-        buildScene(loader);
+        buildScene();
 
         if (scene == null)
             return;
@@ -64,13 +69,13 @@ public abstract class Screen {
         this.stage = new Stage();
         stage.setResizable(false);
         stage.centerOnScreen();
+        stage.setTitle(TITLE);
+        setIcon(stage);
         if (isModal) {
             stage.initModality(Modality.APPLICATION_MODAL);
         }
 
         stage.setScene(scene);
-
-        addShutdownHook();
     }
 
     public void setController(final Controller controller) {
@@ -88,7 +93,7 @@ public abstract class Screen {
         stage.show();
     }
 
-    private void buildScene(final FXMLLoader loader) {
+    private void buildScene() {
         try {
             this.scene = new Scene(loader.load());
         } catch (IOException e) {
@@ -97,21 +102,19 @@ public abstract class Screen {
     }
 
     private FXMLLoader getLoader() {
-        final String routePath = route.getPath();
-        try {
-            final URL url = IOUtils.resourceToURL(routePath, App.class.getClassLoader());
-            this.loader = new FXMLLoader(url);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        final String path = route.getPath();
+        final URL url = App.class.getResource(path);
+        this.loader = new FXMLLoader(url);
         return loader;
     }
 
-    private void addShutdownHook() {
-        final Stage stage = getStage();
-        if (stage != null) {
-            stage.setOnCloseRequest(event -> {
-            });
+    private void setIcon(final Stage stage) {
+        try (final InputStream stream = App.class.getResourceAsStream(ICON_PATH)) {
+            if (stream != null) {
+                stage.getIcons().add(new Image(stream));
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

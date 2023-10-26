@@ -6,7 +6,7 @@ import io.jacobking.simpleticket.gui.navigation.Route;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.net.URLClassLoader;
+import java.io.InputStream;
 
 public class App extends Application {
 
@@ -21,4 +21,10 @@ public class App extends Application {
             Navigation.getInstance().display(Route.DASHBOARD, false);
         }
     }
+
+    public static InputStream getResourcesAsStream(final String path) {
+        return App.class.getResourceAsStream(path);
+    }
+
+
 }

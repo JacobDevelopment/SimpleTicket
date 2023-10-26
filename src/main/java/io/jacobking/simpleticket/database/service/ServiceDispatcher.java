@@ -62,6 +62,7 @@ public class ServiceDispatcher {
         return false;
     }
 
+
     public <T> boolean update(final ServiceType type, final T value) {
         final Service<T> service = getService(type);
         if (service != null) {

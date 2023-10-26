@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DatabaseInitializer {
-    private static final String CURRENT_SQL = "io/jacobking/simpleticket/sql/current.sql";
+    private static final String CURRENT_SQL = "sql/current.sql";
 
     private final Connection connection;
 
@@ -57,8 +57,7 @@ public class DatabaseInitializer {
     }
 
     private String getQueries() throws IOException {
-        final InputStream stream = App.class.getClassLoader()
-                .getResourceAsStream(CURRENT_SQL);
+        final InputStream stream = App.class.getResourceAsStream(CURRENT_SQL);
         return (stream != null) ?
                 IOUtils.toString(stream, StandardCharsets.UTF_8)
                 : "";

@@ -1,11 +1,8 @@
 package io.jacobking.simpleticket.database.connector;
 
-import io.jacobking.simpleticket.tables.pojos.Test;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
-
-import static io.jacobking.simpleticket.Tables.TEST;
 
 public class JOOQConnector {
 
