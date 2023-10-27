@@ -82,7 +82,7 @@
             <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="6.0" prefHeight="42.0" prefWidth="388.0" spacing="5.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#onCreateTicket" prefHeight="30.0" prefWidth="95.0" styleClass="control-buttons" text="Create Ticket" />
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="95.0" styleClass="control-buttons" text="Open Ticket" />
+                  <Button mnemonicParsing="false" onAction="#onOpenTicket" prefHeight="30.0" prefWidth="95.0" styleClass="control-buttons" text="Open Ticket" />
                   <Button mnemonicParsing="false" onAction="#onDeleteTicket" prefHeight="30.0" prefWidth="95.0" styleClass="control-buttons" text="Delete Ticket" />
                </children>
             </HBox>

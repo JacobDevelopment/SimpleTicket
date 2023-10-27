@@ -1,17 +1,99 @@
 @import url("core.css");
-@import url("button.css");
 
-.header-label {
-    -fx-text-fill: white;
-    -fx-font-weight: bolder;
-    -fx-font-size: 40px;
-}
-
-.header {
+.body {
     -fx-background-color: -fx-offset;
 }
 
-.info-label {
-    -fx-text-fill: -fx-offset;
+.card-header {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+}
+
+.card-header-label {
+    -fx-font-size: 1.5em;
     -fx-font-weight: bolder;
+    -fx-text-fill: -fx-primary;
+}
+
+.card-content {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+}
+
+
+.card-subject {
+    -fx-font-weight: bolder;
+    -fx-text-fill: black;
+}
+
+.card-keys {
+    -fx-font-weight: bolder;
+    -fx-text-fill: -fx-primary;
+}
+
+.card-values {
+    -fx-font-weight: bolder;
+    -fx-text-fill: black;
+}
+
+.body-labels {
+    -fx-font-weight: bolder;
+    -fx-text-fill: -fx-primary;
+    -fx-font-size: 1.2em;
+}
+
+.button {
+    -fx-background-color: -fx-primary;
+    -fx-font-weight: bolder;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+}
+
+.button:hover {
+    -fx-background-color: derive(-fx-primary, 20%);
+    -fx-font-weight: bolder;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.danger-button {
+    -fx-background-color: -fx-warning;
+    -fx-font-weight: bolder;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane-anchor {
+    -fx-background-color: white;
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar > .increment-button > .increment-arrow,
+.scroll-bar > .decrement-button > .decrement-arrow {
+    -fx-background-color: -fx-mark-highlight-color, derive(-fx-primary, -45%);
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: -fx-primary;
+    -fx-background-radius: 5em;
+}
+
+.danger-button:hover {
+    -fx-background-color: derive(-fx-warning, 30%);
+    -fx-font-weight: bolder;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
 }

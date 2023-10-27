@@ -56,6 +56,14 @@ public class TicketController extends Controller {
     }
 
     @FXML
+    private void onOpenTicket() {
+        final TicketModel model = ticketTable.getSelectionModel().getSelectedItem();
+        if (model != null) {
+            getNavigation().display(Route.TICKET_VIEWER, true, model);
+        }
+    }
+
+    @FXML
     private void onDeleteTicket() {
         final TicketModel model = ticketTable.getSelectionModel().getSelectedItem();
         if (model != null) {
