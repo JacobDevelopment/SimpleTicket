@@ -18,19 +18,6 @@ import java.util.ResourceBundle;
 
 public class DashboardController extends Controller {
 
-    private final ObjectProperty<MenuModel> active = new SimpleObjectProperty<>();
-
-
-    private MenuModel ticketModel;
-    private MenuModel managementModel;
-
-    @FXML private Pane ticketPane;
-    @FXML private Pane managementPane;
-
-    @FXML private AnchorPane ticketAnchor;
-    @FXML private AnchorPane managementAnchor;
-
-    @FXML private Label versionLabel;
 
     public DashboardController() {
         super(Navigation.getInstance());
@@ -38,38 +25,27 @@ public class DashboardController extends Controller {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.ticketModel = new MenuModel(ticketPane, ticketAnchor);
-        this.managementModel = new MenuModel(managementPane, managementAnchor);
 
-        active.setValue(ticketModel);
-
-        active.addListener(((observable, oldValue, newValue) -> {
-            if (oldValue == null) {
-                newValue.enable();
-                return;
-            }
-
-            oldValue.disable();
-            newValue.enable();
-        }));
-
-        versionLabel.setText(Version.getCurrent());
     }
-
 
     @FXML
     private void onTickets() {
-        setActive(ticketModel);
+
     }
 
     @FXML
-    private void onManagement() {
-        setActive(managementModel);
+    private void onCompany() {
+
     }
 
     @FXML
-    private void onAbout() {
-        getNavigation().display(Route.ABOUT, true);
+    private void onDepartment() {
+
+    }
+
+    @FXML
+    private void onEmployee() {
+
     }
 
     @FXML
@@ -81,11 +57,4 @@ public class DashboardController extends Controller {
     private void onExit() {
         SimpleTicket.getInstance().shutdown();
     }
-
-    private void setActive(final MenuModel model) {
-        if (model == null)
-            return;
-        active.setValue(model);
-    }
-
 }
