@@ -5,10 +5,40 @@ import io.jacobking.simpleticket.database.service.ServiceType;
 import io.jacobking.simpleticket.gui.controller.proctor.ProctorImpl;
 import io.jacobking.simpleticket.gui.model.TicketModel;
 import io.jacobking.simpleticket.tables.pojos.Ticket;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.collections.transformation.FilteredList;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TicketProctor extends ProctorImpl<Ticket, TicketModel> {
+
+    private final FilteredList<TicketModel> openTickets;
+    private final FilteredList<TicketModel> resolvedTickets;
+    private final FilteredList<TicketModel> inProgressTickets;
+    private final FilteredList<TicketModel> pausedTickets;
+
+    public TicketProctor() {
+        super();
+        this.openTickets = new FilteredList<>(getModelList(), ticket -> {
+            return ticket.getStatus().equalsIgnoreCase("OPEN");
+        });
+
+        this.resolvedTickets = new FilteredList<>(getModelList(), ticket -> {
+            return ticket.getStatus().equalsIgnoreCase("RESOLVED");
+        });
+
+        this.inProgressTickets = new FilteredList<>(getModelList(), ticket -> {
+            return ticket.getStatus().equalsIgnoreCase("IN_PROGRESS");
+        });
+
+        this.pausedTickets = new FilteredList<>(getModelList(), ticket -> {
+            return ticket.getStatus().equalsIgnoreCase("PAUSED");
+        });
+    }
+
     @Override
     public void fetch() {
         final List<Ticket> ticketList = Database.fetchAll(ServiceType.TICKET);
@@ -43,5 +73,19 @@ public class TicketProctor extends ProctorImpl<Ticket, TicketModel> {
         }
     }
 
+    public FilteredList<TicketModel> getOpenTickets() {
+        return openTickets;
+    }
 
+    public FilteredList<TicketModel> getResolvedTickets() {
+        return resolvedTickets;
+    }
+
+    public FilteredList<TicketModel> getInProgressTickets() {
+        return inProgressTickets;
+    }
+
+    public FilteredList<TicketModel> getPausedTickets() {
+        return pausedTickets;
+    }
 }

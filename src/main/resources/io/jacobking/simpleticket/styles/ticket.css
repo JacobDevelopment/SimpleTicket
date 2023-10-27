@@ -1,15 +1,100 @@
 @import url("core.css");
 @import url("button.css");
-@import url("table.css");
 
-.separator {
-    -fx-padding: 1;
+.body {
     -fx-background-color: -fx-offset;
-
 }
 
-.separator .line {
+.card-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+}
+
+.card-header {
+    -fx-text-fill: -fx-primary;
+}
+
+.card-content {
+    -fx-text-fill: -fx-primary;
+    -fx-font-weight: bolder;
+    -fx-font-size: 15px;
+}
+
+.control-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+}
+
+.control-buttons {
+    -fx-background-color: -fx-primary;
+    -fx-font-weight: bolder;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+}
+
+.control-buttons:hover {
     -fx-background-color: -fx-offset;
-    -fx-pref-height: 5;
-    -fx-border-color: none;
+    -fx-text-fill: -fx-primary;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.list-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+}
+
+.list-pane-header {
+    -fx-text-fill: -fx-primary;
+    -fx-font-weight: bolder;
+    -fx-font-size: 1.5em;
+}
+
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: white;
+    -fx-border-style: none;
+}
+
+.table-view .column-header .label {
+    -fx-font-weight: bolder;
+    -fx-font-size: 1.2em;
+    -fx-text-fill: -fx-primary;
+    -fx-alignment: center;
+}
+
+.table-row-cell {
+    -fx-background-color: none;
+    -fx-border-color: -fx-offset;
+    -fx-border-width: 0 0 1 0;
+    -fx-table-cell-border-color: transparent;
+    -fx-cell-size: 50px;
+}
+
+.table-row-cell:hover {
+    -fx-cursor: hand;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: -fx-offset;
+    -fx-text-fill: -fx-primary;
+}
+
+.table-column {
+    -fx-alignment: center;
 }
