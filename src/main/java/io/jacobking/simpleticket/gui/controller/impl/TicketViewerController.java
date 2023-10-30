@@ -14,10 +14,13 @@ import io.jacobking.simpleticket.gui.navigation.Route;
 import io.jacobking.simpleticket.gui.view.combobox.EmployeeComboBox;
 import io.jacobking.simpleticket.gui.view.combobox.PriorityComboBox;
 import io.jacobking.simpleticket.gui.view.combobox.StatusComboBox;
+import io.jacobking.simpleticket.object.PriorityType;
+import io.jacobking.simpleticket.object.StatusType;
 import io.jacobking.simpleticket.tables.pojos.Employee;
 import io.jacobking.simpleticket.tables.pojos.TicketComments;
 import io.jacobking.simpleticket.utility.DateUtil;
 import io.jacobking.simpleticket.utility.MiscUtil;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
@@ -33,6 +36,7 @@ import org.controlsfx.control.SearchableComboBox;
 import org.jooq.impl.DSL;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -159,7 +163,7 @@ public class TicketViewerController extends Controller {
     }
 
     private void configureStatusBox() {
-        statusBox.getItems().addAll("Open", "Paused", "Resolved", "In-Progress");
+        statusBox.setItems(StatusType.getObservableList());
         statusBox.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
             if (newValue == null || newValue.isEmpty()) {
                 return;
@@ -169,7 +173,7 @@ public class TicketViewerController extends Controller {
     }
 
     private void configurePriorityBox() {
-        priorityBox.getItems().addAll("Low", "Medium", "High", "Emergency");
+        priorityBox.setItems(PriorityType.getObservableList());
         priorityBox.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
             if (newValue == null || newValue.isEmpty())
                 return;
@@ -202,7 +206,7 @@ public class TicketViewerController extends Controller {
             }
         });
 
-        employeeBox.setConverter(new StringConverter<EmployeeModel>() {
+        employeeBox.setConverter(new StringConverter<>() {
             @Override
             public String toString(EmployeeModel object) {
                 return String.format("%s %s", object.getFirstName(), object.getLastName());
@@ -222,11 +226,6 @@ public class TicketViewerController extends Controller {
     }
 
     private void configureCommentList() {
-        final ScrollPane pane = (ScrollPane) commentList.lookup(".scroll-pane");
-        if (pane != null) {
-            pane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        }
-
         commentList.setCellFactory(new Callback<>() {
             @Override
             public ListCell<CommentModel> call(ListView<CommentModel> param) {

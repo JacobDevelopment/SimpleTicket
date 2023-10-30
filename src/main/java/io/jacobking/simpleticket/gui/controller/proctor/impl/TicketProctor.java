@@ -20,6 +20,8 @@ public class TicketProctor extends ProctorImpl<Ticket, TicketModel> {
     private final FilteredList<TicketModel> inProgressTickets;
     private final FilteredList<TicketModel> pausedTickets;
 
+    private Ticket lastCreated = null;
+
     public TicketProctor() {
         super();
         this.openTickets = new FilteredList<>(getModelList(), ticket -> {
@@ -55,10 +57,21 @@ public class TicketProctor extends ProctorImpl<Ticket, TicketModel> {
     @Override
     public void create(Ticket ticket) {
         final Ticket insertedTicket = insert(ticket);
+        this.lastCreated = insertedTicket;
         if (insertedTicket != null) {
             final TicketModel model = new TicketModel(insertedTicket);
             modelList.add(model);
         }
+    }
+
+    public TicketModel createAndReturn(final Ticket ticket) {
+        final Ticket insertedTicket = insert(ticket);
+        if (insertedTicket != null) {
+            final TicketModel model = new TicketModel(insertedTicket);
+            modelList.add(model);
+            return model;
+        }
+        return null;
     }
 
     @Override
@@ -71,6 +84,10 @@ public class TicketProctor extends ProctorImpl<Ticket, TicketModel> {
         if (Database.delete(ServiceType.TICKET, id)) {
             getModelList().removeIf(model -> model.getId() == id);
         }
+    }
+
+    public Ticket getLastCreated() {
+        return lastCreated;
     }
 
     public FilteredList<TicketModel> getOpenTickets() {

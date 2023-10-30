@@ -1,61 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.jacobking.simpleticket.gui.view.combobox.EmployeeComboBox?>
-<?import io.jacobking.simpleticket.gui.view.combobox.PriorityComboBox?>
-<?import io.jacobking.simpleticket.gui.view.combobox.StatusComboBox?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.SearchableComboBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="346.0" prefWidth="396.0" stylesheets="@styles/new_ticket.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <Pane prefHeight="72.0" prefWidth="396.0" styleClass="header">
-            <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="106.0" layoutY="11.0" styleClass="header-text" text="New Ticket" textAlignment="CENTER" />
-            </children>
-        </Pane>
-        <VBox layoutY="72.0" prefHeight="160.0" prefWidth="396.0">
-            <children>
-                <AnchorPane prefHeight="56.0" prefWidth="396.0">
-                    <children>
-                        <Label layoutX="8.0" layoutY="13.0" styleClass="field-labels" text="Subject" />
-                        <TextField fx:id="subjectField" layoutX="59.0" layoutY="9.0" prefHeight="25.0" prefWidth="329.0" />
-                        <Separator layoutX="5.0" layoutY="34.0" prefHeight="17.0" prefWidth="387.0" />
-                    </children>
-                </AnchorPane>
-                <AnchorPane prefHeight="57.0" prefWidth="396.0">
-                    <children>
-                        <Separator layoutX="5.0" layoutY="42.0" prefHeight="17.0" prefWidth="387.0" />
-                        <Label layoutX="78.0" layoutY="-8.0" styleClass="field-labels" text="Status" />
-                        <Label layoutX="286.0" layoutY="-8.0" styleClass="field-labels" text="Priority" />
-                        <StatusComboBox fx:id="statusBox" layoutX="21.0" layoutY="17.0" prefHeight="25.0" prefWidth="150.0" />
-                        <PriorityComboBox fx:id="priorityBox" layoutX="233.0" layoutY="17.0" prefHeight="25.0" prefWidth="150.0" />
-                    </children>
-                </AnchorPane>
-                <AnchorPane prefHeight="57.0" prefWidth="396.0">
-                    <children>
-                        <Separator layoutX="5.0" layoutY="42.0" prefHeight="17.0" prefWidth="387.0" />
-                        <Label layoutX="68.0" layoutY="-8.0" styleClass="field-labels" text="Employee" />
-                        <Label layoutX="241.0" layoutY="-8.0" styleClass="field-labels" text="Employee ID (Optional)" />
-                        <TextField fx:id="employeeIdField" layoutX="233.0" layoutY="12.0" prefHeight="25.0" prefWidth="150.0" />
-                  <EmployeeComboBox fx:id="employeeBox" layoutX="21.0" layoutY="12.0" prefHeight="25.0" prefWidth="150.0" />
-                    </children>
-                </AnchorPane>
-                <AnchorPane prefHeight="57.0" prefWidth="396.0">
-                    <children>
-                        <Separator layoutX="5.0" layoutY="42.0" prefHeight="17.0" prefWidth="387.0" />
-                        <TextField fx:id="creationField" disable="true" layoutX="21.0" layoutY="12.0" prefHeight="25.0" prefWidth="150.0" />
-                        <Label layoutX="57.0" layoutY="-8.0" styleClass="field-labels" text="Creation Date" />
-                    </children>
-                </AnchorPane>
-            </children>
-        </VBox>
-        <Button fx:id="createButton" disable="true" layoutX="14.0" layoutY="313.0" mnemonicParsing="false" onAction="#onCreate" text="Create" />
-        <Button layoutX="240.0" layoutY="313.0" mnemonicParsing="false" onAction="#onClearFields" text="Clear Fields" />
-        <Button layoutX="329.0" layoutY="313.0" mnemonicParsing="false" onAction="#onClose" text="Cancel" />
-    </children>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="450.0" styleClass="body" stylesheets="@styles/new_ticket.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="11.0" layoutY="14.0" prefHeight="46.0" prefWidth="429.0" styleClass="header">
+         <children>
+            <Button fx:id="createButton" disable="true" layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#onCreate" prefHeight="25.0" prefWidth="67.0" text="Create" />
+            <Button layoutX="348.0" layoutY="11.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="25.0" prefWidth="67.0" text="Cancel" />
+            <Button fx:id="quickCreateButton" disable="true" layoutX="88.0" layoutY="11.0" mnemonicParsing="false" onAction="#onQuickCreate" prefHeight="25.0" prefWidth="89.0" text="Quick Create" />
+         </children>
+      </Pane>
+      <TextField fx:id="subjectField" layoutX="122.0" layoutY="77.0" prefHeight="25.0" prefWidth="310.0" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="18.0" layoutY="77.0" prefHeight="25.0" prefWidth="98.0" styleClass="body-labels" text="Subject" textAlignment="CENTER" />
+      <TextArea fx:id="commentArea" layoutX="122.0" layoutY="112.0" prefHeight="152.0" prefWidth="310.0" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="33.0" layoutY="119.0" prefHeight="88.0" prefWidth="83.0" styleClass="body-labels" text="Initial Comment" textAlignment="RIGHT" wrapText="true" />
+      <SearchableComboBox fx:id="priorityBox" layoutX="122.0" layoutY="283.0" />
+      <SearchableComboBox fx:id="statusBox" layoutX="122.0" layoutY="315.0" />
+      <SearchableComboBox fx:id="employeeBox" layoutX="122.0" layoutY="346.0" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="18.0" layoutY="283.0" prefHeight="25.0" prefWidth="98.0" styleClass="body-labels" text="Priority" textAlignment="CENTER" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="18.0" layoutY="315.0" prefHeight="25.0" prefWidth="98.0" styleClass="body-labels" text="Status" textAlignment="CENTER" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="18.0" layoutY="346.0" prefHeight="25.0" prefWidth="98.0" styleClass="body-labels" text="Employee" textAlignment="CENTER" />
+   </children>
 </AnchorPane>
