@@ -16,6 +16,7 @@ import io.jacobking.simpleticket.tables.pojos.Ticket;
 import io.jacobking.simpleticket.utility.DateUtil;
 import io.jacobking.simpleticket.utility.MiscUtil;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 

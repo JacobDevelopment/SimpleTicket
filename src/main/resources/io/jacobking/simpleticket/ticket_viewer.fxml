@@ -2,8 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,29 +13,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" styleClass="body" stylesheets="@styles/ticket_viewer.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ScrollPane hbarPolicy="NEVER" layoutX="20.0" layoutY="52.0" prefHeight="459.0" prefWidth="450.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="458.0" prefWidth="432.0" styleClass="scroll-pane-anchor">
+      <Pane layoutX="21.0" layoutY="63.0" prefHeight="25.0" prefWidth="759.0" styleClass="card-header">
+         <children>
+            <HBox layoutX="9.0" layoutY="-1.0" prefHeight="13.0" prefWidth="297.0">
                <children>
-                  <VBox fx:id="commentBox" prefHeight="459.0" prefWidth="431.0" spacing="5.0" />
+                  <Label prefHeight="10.0" prefWidth="75.0" styleClass="card-header-label" text="Subject:" />
+                  <Label fx:id="subjectLabel" prefHeight="27.0" prefWidth="223.0" styleClass="card-subject" text="Undefined">
+                     <tooltip>
+                        <Tooltip fx:id="subjectTooltip" text="Empty Tooltip" />
+                     </tooltip>
+                  </Label>
                </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
-      <TextField fx:id="commentField" layoutX="20.0" layoutY="517.0" prefHeight="25.0" prefWidth="359.0" />
-      <Button fx:id="postButton" disable="true" layoutX="385.0" layoutY="517.0" mnemonicParsing="false" onAction="#onPostComment" prefHeight="25.0" prefWidth="85.0" text="Post" />
-      <Separator layoutX="477.0" layoutY="13.0" orientation="VERTICAL" prefHeight="524.0" prefWidth="4.0" />
-      <Pane layoutX="483.0" layoutY="14.0" prefHeight="31.0" prefWidth="314.0" styleClass="card-header">
-         <children>
-            <Label layoutX="8.0" prefHeight="31.0" prefWidth="314.0" styleClass="card-header-label" text="Details" />
+            </HBox>
          </children>
       </Pane>
-      <Pane layoutX="20.0" layoutY="14.0" prefHeight="31.0" prefWidth="110.0" styleClass="card-header">
-         <children>
-            <Label layoutX="7.0" layoutY="-1.0" prefHeight="31.0" prefWidth="97.0" styleClass="card-header-label" text="Comments" />
-         </children>
-      </Pane>
-      <Pane layoutX="483.0" layoutY="57.0" prefHeight="137.0" prefWidth="314.0" styleClass="card-content">
+      <TextField fx:id="commentField" layoutX="16.0" layoutY="303.0" prefHeight="25.0" prefWidth="674.0" />
+      <Pane layoutX="14.0" layoutY="401.0" prefHeight="135.0" prefWidth="315.0" styleClass="card-content">
          <children>
             <VBox layoutX="9.0" layoutY="7.0" prefHeight="130.0" prefWidth="297.0">
                <children>
@@ -74,34 +66,7 @@
             </VBox>
          </children>
       </Pane>
-      <VBox alignment="TOP_CENTER" layoutX="483.0" layoutY="398.0" prefHeight="152.0" prefWidth="121.0" spacing="5.0">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" styleClass="testbutton" text="Save Ticket" />
-            <Button mnemonicParsing="false" onAction="#onUndoChanges" prefHeight="25.0" prefWidth="110.0" text="Undo Changes" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" styleClass="danger-button" text="Delete Ticket" />
-            <Button disable="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Export Ticket" />
-         </children>
-      </VBox>
-      <Pane layoutX="135.0" layoutY="14.0" prefHeight="31.0" prefWidth="332.0" styleClass="card-header">
-         <children>
-            <HBox layoutX="17.0" layoutY="3.0" prefHeight="25.0" prefWidth="297.0">
-               <children>
-                  <Label prefHeight="31.0" prefWidth="75.0" styleClass="card-header-label" text="Subject:" />
-                  <Label fx:id="subjectLabel" prefHeight="27.0" prefWidth="223.0" styleClass="card-subject" text="Undefined">
-                     <tooltip>
-                        <Tooltip fx:id="subjectTooltip" text="Empty Tooltip" />
-                     </tooltip>
-                  </Label>
-               </children>
-            </HBox>
-         </children>
-      </Pane>
-      <Pane layoutX="483.0" layoutY="204.0" prefHeight="31.0" prefWidth="314.0" styleClass="card-header">
-         <children>
-            <Label layoutX="8.0" prefHeight="31.0" prefWidth="314.0" styleClass="card-header-label" text="Manage" />
-         </children>
-      </Pane>
-      <Pane layoutX="483.0" layoutY="242.0" prefHeight="145.0" prefWidth="314.0" styleClass="card-content">
+      <Pane layoutX="338.0" layoutY="401.0" prefHeight="135.0" prefWidth="315.0" styleClass="card-content">
          <children>
             <VBox layoutX="9.0" layoutY="13.0" prefHeight="119.0" prefWidth="297.0" spacing="5.0">
                <children>
@@ -113,5 +78,21 @@
             </VBox>
          </children>
       </Pane>
+      <Pane layoutX="12.0" layoutY="10.0" prefHeight="44.0" prefWidth="777.0" styleClass="menu-pane">
+         <children>
+            <HBox alignment="CENTER" layoutX="12.0" layoutY="3.0" prefHeight="38.0" prefWidth="752.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onSaveTicket" prefHeight="25.0" prefWidth="110.0" styleClass="testbutton" text="Save Ticket" />
+                  <Button mnemonicParsing="false" onAction="#onDeleteTicket" prefHeight="25.0" prefWidth="110.0" styleClass="danger-button" text="Delete Ticket" />
+                  <Button mnemonicParsing="false" onAction="#onUndoChanges" prefHeight="25.0" prefWidth="110.0" text="Undo Changes" />
+                  <Button disable="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Export Ticket" />
+                  <Button disable="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Lock Ticket" />
+                  <Button disable="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Disable Ticket" />
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <Button fx:id="postButton" disable="true" layoutX="695.0" layoutY="303.0" mnemonicParsing="false" onAction="#onPostComment" prefHeight="25.0" prefWidth="85.0" text="Post" />
+      <ListView fx:id="commentList" layoutX="18.0" layoutY="95.0" prefHeight="200.0" prefWidth="766.0" />
    </children>
 </AnchorPane>

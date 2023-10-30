@@ -4,6 +4,11 @@
     -fx-background-color: -fx-offset;
 }
 
+.menu-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+}
+
 .card-header {
     -fx-background-color: white;
     -fx-background-radius: 15px;
@@ -64,12 +69,14 @@
     -fx-background-radius: 8px;
 }
 
+
 .scroll-pane {
     -fx-background-color: transparent;
 }
 
 .scroll-pane-anchor {
     -fx-background-color: white;
+    -fx-background-radius: 18px;
 }
 
 .scroll-bar:vertical {
@@ -96,4 +103,11 @@
     -fx-text-fill: white;
     -fx-background-radius: 8px;
     -fx-cursor: hand;
+}
+
+.list-view .scroll-bar:horizontal .increment-arrow,
+.list-view .scroll-bar:horizontal .decrement-arrow,
+.list-view .scroll-bar:horizontal .increment-button,
+.list-view .scroll-bar:horizontal .decrement-button {
+    -fx-padding:0;
 }

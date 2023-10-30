@@ -1,10 +1,12 @@
 package io.jacobking.simpleticket.gui.controller.impl;
 
 import io.jacobking.simpleticket.database.Database;
+import io.jacobking.simpleticket.database.service.ServiceDispatcher;
 import io.jacobking.simpleticket.database.service.ServiceType;
 import io.jacobking.simpleticket.gui.controller.Controller;
 import io.jacobking.simpleticket.gui.controller.proctor.Proctor;
 import io.jacobking.simpleticket.gui.controller.proctor.impl.TicketProctor;
+import io.jacobking.simpleticket.gui.model.CommentModel;
 import io.jacobking.simpleticket.gui.model.EmployeeModel;
 import io.jacobking.simpleticket.gui.model.TicketModel;
 import io.jacobking.simpleticket.gui.navigation.Navigation;
@@ -20,7 +22,11 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import org.controlsfx.control.SearchableComboBox;
@@ -34,6 +40,10 @@ import static io.jacobking.simpleticket.tables.TicketComments.TICKET_COMMENTS;
 
 public class TicketViewerController extends Controller {
 
+    private static final int LIST_WIDTH = 766;
+    private static final int LIST_PADDING = (LIST_WIDTH - 25);
+
+    private final TicketProctor ticketProctor;
     private final TicketModel model;
 
     @FXML private Label subjectLabel;
@@ -50,12 +60,13 @@ public class TicketViewerController extends Controller {
 
     @FXML private Tooltip subjectTooltip;
 
-    @FXML private VBox commentBox;
+    @FXML private ListView<CommentModel> commentList;
     @FXML private TextField commentField;
     @FXML private Button postButton;
 
     public TicketViewerController(TicketModel model) {
         super(Navigation.getInstance());
+        this.ticketProctor = Proctor.getInstance().ticket();
         this.model = model;
     }
 
@@ -76,24 +87,67 @@ public class TicketViewerController extends Controller {
         configurePriorityBox();
         configureEmployeeBox();
         configureSubject();
+        configureCommentList();
     }
 
     @FXML
     private void onPostComment() {
-        final String comment = commentField.getText();
-        final Label label = new Label(comment);
-        label.setWrapText(true);
-        label.setStyle("-fx-text-fill: -fx-primary");
+        final CommentModel model = new CommentModel(commentField.getText());
+        commentList.getItems().add(model);
+    }
 
-        commentBox.getChildren().add(label);
+    @FXML
+    private void onSaveTicket() {
+        model.setEmployee(getEmployeeId());
+        model.setPriority(getPriority());
+        model.setStatus(getStatus());
+        model.setSubject(getSubject());
+        Database.update(ServiceType.TICKET, model.getAsPojo());
+        getNavigation().close(Route.TICKET_VIEWER);
+    }
 
-        Database.insert(ServiceType.TICKET_COMMENTS, new TicketComments()
-                .setTicketId(model.getId())
-                .setComment(comment)
-                .setDate(DateUtil.now())
-        );
+    @FXML
+    private void onUndoChanges() {
+        subjectLabel.setText(model.getSubject());
+        subjectField.setText(model.getSubject());
+        statusBox.getSelectionModel().select(model.getStatus());
+        priorityBox.getSelectionModel().select(model.getPriority());
+    }
 
-        commentField.clear();
+    @FXML
+    private void onDeleteTicket() {
+        final int ticketId = model.getId();
+        ticketProctor.delete(ticketId);
+        getNavigation().close(Route.TICKET_VIEWER);
+    }
+
+    private int getEmployeeId() {
+        final EmployeeModel employeeModel = employeeBox.getSelectionModel().getSelectedItem();
+        if (employeeModel != null)
+            return employeeModel.getId();
+
+        return model.getId();
+    }
+
+    private String getStatus() {
+        final String status = statusBox.getSelectionModel().getSelectedItem();
+        if (status != null)
+            return status;
+        return model.getStatus();
+    }
+
+    private String getPriority() {
+        final String priority = priorityBox.getSelectionModel().getSelectedItem();
+        if (priority != null)
+            return priority;
+        return model.getPriority();
+    }
+
+    private String getSubject() {
+        final String subject = subjectField.getText();
+        if (subject == null || subject.isEmpty())
+            return model.getSubject();
+        return subject;
     }
 
     private String getResolvedEmployee(final int id) {
@@ -103,12 +157,6 @@ public class TicketViewerController extends Controller {
         }
         return String.valueOf(id);
     }
-
-    @FXML
-    private void onUndoChanges() {
-
-    }
-
 
     private void configureStatusBox() {
         statusBox.getItems().addAll("Open", "Paused", "Resolved", "In-Progress");
@@ -171,6 +219,39 @@ public class TicketViewerController extends Controller {
         subjectField.textProperty().addListener(((observable, oldValue, newValue) -> {
             subjectLabel.setText(newValue);
         }));
+    }
+
+    private void configureCommentList() {
+        final ScrollPane pane = (ScrollPane) commentList.lookup(".scroll-pane");
+        if (pane != null) {
+            pane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        }
+
+        commentList.setCellFactory(new Callback<>() {
+            @Override
+            public ListCell<CommentModel> call(ListView<CommentModel> param) {
+                return new ListCell<>() {
+                    @Override
+                    protected void updateItem(CommentModel item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item == null || empty) {
+                            setGraphic(null);
+                        } else {
+                            final VBox box = new VBox(5);
+                            final Text date = new Text(item.getDate());
+                            date.setFont(Font.font(null, FontWeight.BOLD, 10));
+
+                            final Text comment = new Text(item.getComment());
+                            comment.setWrappingWidth(LIST_PADDING);
+
+                            box.getChildren().addAll(date, comment);
+                            setGraphic(box);
+                        }
+                    }
+
+                };
+            }
+        });
     }
 
 }
