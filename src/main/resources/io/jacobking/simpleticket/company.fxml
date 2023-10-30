@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="970.0" styleClass="body" stylesheets="@styles/company.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.jacobking.simpleticket.gui.controller.impl.CompanyController">
+   <children>
+      <Pane layoutX="27.0" layoutY="27.0" prefHeight="74.0" prefWidth="200.0" styleClass="card-pane">
+         <children>
+            <Circle fill="#034f75" layoutX="35.0" layoutY="37.0" radius="21.0" stroke="#034f75" strokeType="INSIDE" />
+            <Group layoutX="-284.0" layoutY="215.0">
+               <children>
+                  <SVGPath content="M323.5-192h-9a1.5,1.5,0,0,0-1.5,1.5V-176h12v-14.5A1.5,1.5,0,0,0,323.5-192ZM318-177v-3h2v3Zm6,0h-3v-3.5a.5.5,0,0,0-.5-.5h-3a.5.5,0,0,0-.5.5v3.5h-3v-13.5a.5.5,0,0,1,.5-.5h9a.5.5,0,0,1,.5.5Zm-8-12h2v2h-2Zm4,0h2v2h-2Zm-4,4h2v2h-2Zm4,0h2v2h-2Z" fill="WHITE" layoutY="6.0" scaleX="1.5" scaleY="1.5" />
+               </children>
+            </Group>
+            <Label layoutX="100.0" layoutY="17.0" styleClass="card-header" text="Total Companies" />
+            <Label fx:id="companyLabel" layoutX="140.0" layoutY="39.0" styleClass="card-content" text="0" />
+         </children></Pane>
+      <Pane layoutX="27.0" layoutY="117.0" prefHeight="53.0" prefWidth="917.0" styleClass="menu-pane">
+         <children>
+            <HBox alignment="CENTER_LEFT" layoutX="14.0" prefHeight="53.0" prefWidth="432.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onCreateCompany" prefHeight="25.0" prefWidth="110.0" text="Create Company" />
+                  <Button mnemonicParsing="false" onAction="#onDeleteCompany" prefHeight="25.0" prefWidth="110.0" text="Delete Company" />
+                  <Button mnemonicParsing="false" onAction="#onEditCompany" prefHeight="25.0" prefWidth="110.0" text="Edit Company" />
+               </children>
+            </HBox>
+            <TextField fx:id="searchField" layoutX="635.0" layoutY="12.0" prefHeight="30.0" prefWidth="228.0" />
+            <Button layoutX="869.0" layoutY="11.0" mnemonicParsing="false" onAction="#onSearch">
+               <graphic>
+                  <Group>
+                     <children>
+                        <SVGPath fx:id="searchIcon" content="M269.46,1163.45 C263.17,1163.45 258.071,1158.44 258.071,1152.25 C258.071,1146.06 263.17,1141.04 269.46,1141.04 C275.75,1141.04 280.85,1146.06 280.85,1152.25 C280.85,1158.44 275.75,1163.45 269.46,1163.45 L269.46,1163.45 Z M287.688,1169.25 L279.429,1161.12 C281.591,1158.77 282.92,1155.67 282.92,1152.25 C282.92,1144.93 276.894,1139 269.46,1139 C262.026,1139 256,1144.93 256,1152.25 C256,1159.56 262.026,1165.49 269.46,1165.49 C272.672,1165.49 275.618,1164.38 277.932,1162.53 L286.224,1170.69 C286.629,1171.09 287.284,1171.09 287.688,1170.69 C288.093,1170.3 288.093,1169.65 287.688,1169.25 L287.688,1169.25 Z" fill="WHITE" scaleX="0.75" scaleY="0.75" />
+                     </children>
+                  </Group>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="27.0" layoutY="185.0" prefHeight="577.0" prefWidth="917.0" styleClass="table-pane">
+         <children>
+            <TableView fx:id="companyTable" layoutX="14.0" layoutY="46.0" prefHeight="514.0" prefWidth="245.0">
+              <columns>
+                <TableColumn fx:id="nameColumn" maxWidth="122.0" minWidth="122.0" prefWidth="122.0" text="Name" />
+                <TableColumn fx:id="abbreviationColumn" maxWidth="122.0" minWidth="122.0" prefWidth="122.0" text="Abbreviation" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <Label layoutX="14.0" layoutY="14.0" styleClass="table-header" text="Companies" />
+            <Separator layoutX="255.0" layoutY="9.0" orientation="VERTICAL" prefHeight="560.0" prefWidth="47.0" stylesheets="@styles/separator.css" />
+            <TextField fx:id="companyNameField" disable="true" layoutX="295.0" layoutY="46.0" prefHeight="25.0" prefWidth="184.0" />
+            <TextField fx:id="companyAbbreviationField" disable="true" layoutX="511.0" layoutY="46.0" prefHeight="25.0" prefWidth="163.0" />
+            <Label layoutX="295.0" layoutY="17.0" styleClass="field-labels" text="Company Name" />
+            <Label layoutX="511.0" layoutY="17.0" styleClass="field-labels" text="Company Abbreviation" />
+            <TextField disable="true" layoutX="295.0" layoutY="112.0" prefHeight="25.0" prefWidth="381.0" />
+            <Label layoutX="295.0" layoutY="91.0" styleClass="field-labels" text="Company Description" />
+            <Button fx:id="saveButton" layoutX="296.0" layoutY="159.0" mnemonicParsing="false" onAction="#onSaveCompany" prefHeight="25.0" prefWidth="110.0" text="Save Company" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
