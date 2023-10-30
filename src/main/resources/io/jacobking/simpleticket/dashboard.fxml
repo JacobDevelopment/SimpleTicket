@@ -19,8 +19,8 @@
             <Label layoutX="64.0" layoutY="20.0" prefHeight="35.0" prefWidth="116.0" styleClass="sidebar-title" text="SimpleTicket" />
             <VBox alignment="TOP_CENTER" layoutY="108.0" prefHeight="382.0" prefWidth="200.0">
                <children>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#onTickets" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Tickets" />
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#onCompany" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Company" />
+                  <Button fx:id="ticketsButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onTickets" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Tickets" />
+                  <Button fx:id="companyButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onCompany" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Company" />
                   <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#onDepartment" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Department" />
                   <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#onEmployee" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Employee" />
                   <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#onSettings" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Settings" />
@@ -30,7 +30,8 @@
          </children>
       </AnchorPane>
       <AnchorPane layoutX="216.0" layoutY="5.0" prefHeight="790.0" prefWidth="970.0">
-         <fx:include id="tickets" source="tickets.fxml"/>
+         <fx:include id="tickets" fx:id="tickets" source="tickets.fxml" />
+         <fx:include id="company" fx:id="company" source="company.fxml" />
       </AnchorPane>
    </children>
 </AnchorPane>

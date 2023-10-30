@@ -65,4 +65,10 @@ public class CompanyModel {
                 getAbbreviation()
         );
     }
+
+    public Company getAsPojoUnsigned() {
+        return new Company()
+                .setTitle(getTitle())
+                .setAbbreviation(getAbbreviation());
+    }
 }

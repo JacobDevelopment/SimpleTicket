@@ -1,0 +1,13 @@
+@import url("core.css");
+
+.button {
+    -fx-background-color: -fx-primary;
+    -fx-background-radius: 8px;
+    -fx-text-fill: white;
+    -fx-font-weight: bolder;
+}
+
+.button:hover {
+    -fx-background-color: derive(-fx-primary, 50%);
+    -fx-cursor: hand;
+}

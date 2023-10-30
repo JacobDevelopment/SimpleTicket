@@ -1,4 +1,6 @@
 @import url("table.css");
+@import url("button.css");
+@import url("separator.css");
 
 .body {
     -fx-background-color: -fx-offset;
@@ -6,7 +8,7 @@
 
 .card-pane {
     -fx-background-color: white;
-    -fx-background-radius: 15;
+    -fx-background-radius: 15px;
 }
 
 .card-header {
@@ -19,33 +21,24 @@
     -fx-font-size: 15px;
 }
 
-.control-pane {
+.menu-pane {
     -fx-background-color: white;
-    -fx-background-radius: 15;
+    -fx-background-radius: 15px;
 }
 
-.control-buttons {
-    -fx-background-color: -fx-primary;
-    -fx-font-weight: bolder;
-    -fx-text-fill: white;
-    -fx-background-radius: 8px;
-}
-
-.control-buttons:hover {
-    -fx-background-color: -fx-offset;
-    -fx-text-fill: -fx-primary;
-    -fx-background-radius: 8px;
-    -fx-cursor: hand;
-}
-
-.list-pane {
+.table-pane {
     -fx-background-color: white;
-    -fx-background-radius: 15;
+    -fx-background-radius: 15px;
 }
 
-.list-pane-header {
+.table-header {
     -fx-text-fill: -fx-primary;
     -fx-font-weight: bolder;
     -fx-font-size: 1.5em;
 }
 
+.field-labels {
+    -fx-text-fill: -fx-primary;
+    -fx-font-weight: bolder;
+    -fx-font-size: 15px;
+}
