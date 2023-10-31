@@ -72,6 +72,7 @@ public class DepartmentPortalController extends Controller {
                 .setTitle(departmentNameField.getText())
                 .setAbbreviation(departmentAbbreviationField.getText())
                 .setCompanyId(getCompanyId())
+                .setDescription(departmentDescriptionField.getText())
                 .setSupervisorId(getSupervisorId());
 
         departmentProctor.create(department);
@@ -94,14 +95,10 @@ public class DepartmentPortalController extends Controller {
         return item == null ? 0 : item.getId();
     }
 
-    private void configureSearchBoxes() {
-        companyBox.setItems(companyProctor.getModelList());
-
-    }
-
     private void updateDepartment() {
         model.setTitle(departmentNameField.getText());
         model.setAbbreviation(departmentAbbreviationField.getText());
+        model.setDescription(departmentDescriptionField.getText());
         model.setCompanyId(getCompanyId());
         model.setSupervisorId(getSupervisorId());
 

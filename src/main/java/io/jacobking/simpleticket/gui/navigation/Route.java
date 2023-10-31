@@ -9,6 +9,7 @@ public enum Route {
 
     DEPARTMENT_PORTAL("department_portal.fxml"),
     COMPANY_PORTAL("company_portal.fxml"),
+    EMPLOYEE_PORTAL("employee_portal.fxml"),
 
     ABOUT("about.fxml");
 

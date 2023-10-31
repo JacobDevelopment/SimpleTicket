@@ -7,6 +7,7 @@ import io.jacobking.simpleticket.gui.screen.impl.AboutScreen;
 import io.jacobking.simpleticket.gui.screen.impl.DashboardScreen;
 import io.jacobking.simpleticket.gui.screen.impl.company.CompanyPortalScreen;
 import io.jacobking.simpleticket.gui.screen.impl.department.DepartmentPortalScreen;
+import io.jacobking.simpleticket.gui.screen.impl.employee.EmployeePortalScreen;
 import io.jacobking.simpleticket.gui.screen.impl.ticket.NewTicketScreen;
 import io.jacobking.simpleticket.gui.screen.impl.ticket.TicketViewerScreen;
 import javafx.application.Platform;
@@ -44,6 +45,7 @@ public class SimpleTicket {
         navigation.register(Route.ABOUT, new AboutScreen());
         navigation.register(Route.DEPARTMENT_PORTAL, new DepartmentPortalScreen());
         navigation.register(Route.COMPANY_PORTAL, new CompanyPortalScreen());
+        navigation.register(Route.EMPLOYEE_PORTAL, new EmployeePortalScreen());
     }
 
     public Navigation getNavigation() {

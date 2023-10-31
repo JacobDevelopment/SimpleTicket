@@ -49,16 +49,6 @@ public class Navigation {
         screen.display(isModal, objects);
     }
 
-
-
-    public <T extends Controller> T getController(final Screen screen, final Class<T> targetController) {
-        final Controller controller = screen.getController();
-        if (targetController.isInstance(controller)) {
-            return targetController.cast(controller);
-        }
-        return null;
-    }
-
     public void close(final Route route) {
         final Screen screen = getScreen(route);
         if (screen == null) {

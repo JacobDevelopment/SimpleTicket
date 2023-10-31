@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import org.controlsfx.control.CheckComboBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="970.0" styleClass="body" stylesheets="@styles/department.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.jacobking.simpleticket.gui.controller.impl.DepartmentController">
+<AnchorPane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="970.0" styleClass="body" stylesheets="@styles/department.css" visible="false" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.jacobking.simpleticket.gui.controller.impl.DepartmentController">
    <children>
       <Pane layoutX="246.0" layoutY="34.0" prefHeight="74.0" prefWidth="200.0" styleClass="card-pane">
          <children>

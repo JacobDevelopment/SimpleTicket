@@ -144,6 +144,18 @@ public class DepartmentController extends Controller {
             hideBox.getCheckModel().check(cm);
         });
 
+        companyProctor.getModelList().addListener((ListChangeListener<? super CompanyModel>) c -> {
+            while (c.next()) {
+                if (c.wasAdded()) {
+                    final CompanyModel model = c.getAddedSubList().get(0);
+                    hideBox.getItems().add(model);
+                } else if (c.wasRemoved()) {
+                    final CompanyModel model = c.getRemoved().get(0);
+                    hideBox.getItems().remove(model);
+                }
+            }
+        });
+
         setConverter();
         setHidingConfiguration();
     }
@@ -168,6 +180,8 @@ public class DepartmentController extends Controller {
             Predicate<DepartmentModel> combinedPredicate = dm -> false;
 
             for (CompanyModel cm : hideBox.getCheckModel().getCheckedItems()) {
+                if (cm == null)
+                    continue;
                 final int companyId = cm.getId();
                 combinedPredicate = combinedPredicate.or(dm -> dm.getCompanyId() == companyId);
             }
