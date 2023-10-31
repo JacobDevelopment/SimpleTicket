@@ -1,6 +1,6 @@
 package io.jacobking.simpleticket.gui.screen.impl.company;
 
-import io.jacobking.simpleticket.gui.controller.impl.CompanyPortalController;
+import io.jacobking.simpleticket.gui.controller.impl.portal.CompanyPortalController;
 import io.jacobking.simpleticket.gui.model.CompanyModel;
 import io.jacobking.simpleticket.gui.navigation.Route;
 import io.jacobking.simpleticket.gui.screen.Screen;

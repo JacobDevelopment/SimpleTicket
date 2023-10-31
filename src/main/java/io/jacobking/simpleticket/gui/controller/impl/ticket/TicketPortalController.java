@@ -1,4 +1,4 @@
-package io.jacobking.simpleticket.gui.controller.impl;
+package io.jacobking.simpleticket.gui.controller.impl.ticket;
 
 
 import io.jacobking.simpleticket.database.Database;
@@ -24,7 +24,7 @@ import org.controlsfx.control.SearchableComboBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class NewTicketController extends Controller {
+public class TicketPortalController extends Controller {
 
     private final TicketProctor ticketProctor;
 
@@ -37,7 +37,7 @@ public class NewTicketController extends Controller {
     @FXML private Button createButton;
     @FXML private Button quickCreateButton;
 
-    public NewTicketController() {
+    public TicketPortalController() {
         super(Navigation.getInstance());
         this.ticketProctor = Proctor.getInstance().ticket();
     }

@@ -1,6 +1,6 @@
 package io.jacobking.simpleticket.gui.screen.impl.ticket;
 
-import io.jacobking.simpleticket.gui.controller.impl.TicketViewerController;
+import io.jacobking.simpleticket.gui.controller.impl.ticket.TicketViewerController;
 import io.jacobking.simpleticket.gui.model.TicketModel;
 import io.jacobking.simpleticket.gui.navigation.Route;
 import io.jacobking.simpleticket.gui.screen.Screen;

@@ -24,4 +24,10 @@ module io.jacobking.simpleticket {
 
     opens io.jacobking.simpleticket.gui.view.combobox to javafx.fxml, org.controlsfx.controls;
     exports io.jacobking.simpleticket.gui.view.combobox;
+    exports io.jacobking.simpleticket.gui.controller.impl.portal;
+    opens io.jacobking.simpleticket.gui.controller.impl.portal to javafx.fxml, org.controlsfx.controls;
+    exports io.jacobking.simpleticket.gui.controller.impl.misc;
+    opens io.jacobking.simpleticket.gui.controller.impl.misc to javafx.fxml, org.controlsfx.controls;
+    exports io.jacobking.simpleticket.gui.controller.impl.ticket;
+    opens io.jacobking.simpleticket.gui.controller.impl.ticket to javafx.fxml, org.controlsfx.controls;
 }

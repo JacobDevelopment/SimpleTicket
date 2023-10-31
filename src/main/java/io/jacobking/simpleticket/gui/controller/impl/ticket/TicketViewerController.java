@@ -1,4 +1,4 @@
-package io.jacobking.simpleticket.gui.controller.impl;
+package io.jacobking.simpleticket.gui.controller.impl.ticket;
 
 import io.jacobking.simpleticket.database.Database;
 import io.jacobking.simpleticket.database.service.ServiceDispatcher;
