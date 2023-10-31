@@ -20,6 +20,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.util.StringConverter;
 import org.controlsfx.control.CheckComboBox;
 
@@ -41,6 +42,7 @@ public class EmployeeController extends Controller {
     @FXML private TableColumn<EmployeeModel, String> titleColumn;
     @FXML private TableColumn<EmployeeModel, String> emailColumn;
 
+    @FXML private TextField searchField;
     @FXML private CheckComboBox<CompanyModel> hideBox;
 
     public EmployeeController() {
@@ -88,7 +90,38 @@ public class EmployeeController extends Controller {
 
     @FXML
     private void onSearch() {
+        final String text = searchField.getText();
+        if (text.isEmpty())
+            return;
 
+        employeeTable.getItems().forEach(em -> {
+            final String first = em.getFirstName();
+            if (first.contains(text)) {
+                selectModel(em);
+                return;
+            }
+
+            final String last = em.getLastName();
+            if (last.contains(text)) {
+                selectModel(em);
+                return;
+            }
+
+            final String title = em.getTitle();
+            if (title.contains(text)) {
+                selectModel(em);
+                return;
+            }
+
+            final String email = em.getEmail();
+            if (email.contains(text)) {
+                selectModel(em);
+            }
+        });
+    }
+
+    private void selectModel(final EmployeeModel model) {
+        employeeTable.getSelectionModel().select(model);
     }
 
     private void configureTable() {

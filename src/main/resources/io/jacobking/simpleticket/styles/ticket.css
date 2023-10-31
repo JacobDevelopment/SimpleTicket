@@ -1,4 +1,5 @@
 @import url("table.css");
+@import url("button.css");
 
 .body {
     -fx-background-color: -fx-offset;
@@ -24,19 +25,6 @@
     -fx-background-radius: 15;
 }
 
-.control-buttons {
-    -fx-background-color: -fx-primary;
-    -fx-font-weight: bolder;
-    -fx-text-fill: white;
-    -fx-background-radius: 8px;
-}
-
-.control-buttons:hover {
-    -fx-background-color: -fx-offset;
-    -fx-text-fill: -fx-primary;
-    -fx-background-radius: 8px;
-    -fx-cursor: hand;
-}
 
 .list-pane {
     -fx-background-color: white;

@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -36,6 +37,8 @@ public class TicketController extends Controller {
     @FXML private TableColumn<TicketModel, String> employeeColumn;
     @FXML private TableColumn<TicketModel, String> statusColumn;
     @FXML private TableColumn<TicketModel, String> priorityColumn;
+
+    @FXML private TextField searchField;
 
     public TicketController() {
         super(Navigation.getInstance());
@@ -69,6 +72,20 @@ public class TicketController extends Controller {
         if (model != null) {
             ticketProctor.delete(model.getId());
         }
+    }
+
+    @FXML
+    private void onSearch() {
+        final String text = searchField.getText();
+        if (text.isEmpty())
+            return;
+
+        ticketTable.getItems().forEach(tm -> {
+            final String subject = tm.getSubject();
+            if (subject.contains(text)) {
+                ticketTable.getSelectionModel().select(tm);
+            }
+        });
     }
 
     private void configureTable() {

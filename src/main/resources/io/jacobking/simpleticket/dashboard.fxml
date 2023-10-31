@@ -23,7 +23,7 @@
                   <Button fx:id="companyButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onCompany" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Company" />
                   <Button fx:id="departmentButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onDepartment" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Department" />
                   <Button fx:id="employeeButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onEmployee" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Employee" />
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#onSettings" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Settings" />
+                  <Button contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onSettings" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Settings" />
                </children>
             </VBox>
             <Button contentDisplay="TOP" layoutX="7.0" layoutY="734.0" mnemonicParsing="false" onAction="#onExit" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Exit" />
@@ -33,7 +33,7 @@
          <fx:include id="tickets" fx:id="tickets" source="tickets.fxml" />
          <fx:include id="company" fx:id="company" source="company.fxml" />
          <fx:include id="department" fx:id="department" source="department.fxml" />
-         <fx:include id="employee" fx:id="employee" source="employee.fxml"/>
+         <fx:include id="employee" fx:id="employee" source="employee.fxml" />
       </AnchorPane>
    </children>
 </AnchorPane>

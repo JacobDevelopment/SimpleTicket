@@ -12,6 +12,7 @@ import io.jacobking.simpleticket.gui.model.DepartmentModel;
 import io.jacobking.simpleticket.gui.navigation.Navigation;
 import io.jacobking.simpleticket.gui.navigation.Route;
 import io.jacobking.simpleticket.tables.pojos.Company;
+import io.jacobking.simpleticket.tables.pojos.Department;
 import io.jacobking.simpleticket.tables.pojos.Employee;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -22,6 +23,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.util.StringConverter;
 import org.controlsfx.control.CheckComboBox;
 
@@ -36,7 +38,6 @@ public class DepartmentController extends Controller {
 
     private final CompanyProctor companyProctor;
     private final DepartmentProctor departmentProctor;
-    private final EmployeeProctor employeeProctor;
 
     @FXML private Label companyLabel;
     @FXML private Label departmentLabel;
@@ -48,15 +49,12 @@ public class DepartmentController extends Controller {
     @FXML private TableColumn<DepartmentModel, String> supervisorColumn;
 
     @FXML private CheckComboBox<CompanyModel> hideBox;
-
-    private final FilteredList<DepartmentModel> filteredData;
+    @FXML private TextField searchField;
 
     public DepartmentController() {
         super(Navigation.getInstance());
         this.companyProctor = Proctor.getInstance().company();
         this.departmentProctor = Proctor.getInstance().department();
-        this.employeeProctor = Proctor.getInstance().employee();
-        this.filteredData = new FilteredList<>(departmentProctor.getModelList(), dm -> true);
     }
 
     @Override
@@ -89,7 +87,29 @@ public class DepartmentController extends Controller {
 
     @FXML
     private void onSearch() {
+        final String text = searchField.getText();
+        if (text.isEmpty())
+            return;
 
+        departmentTable.getItems().forEach(dm -> {
+            if (dm.getTitle().contains(text)) {
+                selectDepartment(dm);
+                return;
+            }
+
+            if (dm.getDescription().contains(text)) {
+                selectDepartment(dm);
+                return;
+            }
+
+            if (dm.getAbbreviation().contains(text)) {
+                selectDepartment(dm);
+            }
+        });
+    }
+
+    private void selectDepartment(final DepartmentModel model) {
+        departmentTable.getSelectionModel().select(model);
     }
 
     private void configureLabels() {

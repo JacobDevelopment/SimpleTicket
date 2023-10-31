@@ -39,7 +39,10 @@ public class CompanyProctor extends ProctorImpl<Company, CompanyModel> {
     }
 
     @Override
-    public void delete(int id) {;
+    public void delete(int id) {
+        if (getModelList().isEmpty())
+            return;
+
         if (Database.delete(ServiceType.COMPANY, id)) {
             getModelList().removeIf(model -> model.getId() == id);
         }

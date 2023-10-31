@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.SVGPath?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="970.0" styleClass="body" stylesheets="@styles/company.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.jacobking.simpleticket.gui.controller.impl.CompanyController">
+<AnchorPane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="970.0" styleClass="body" stylesheets="@styles/company.css" visible="false" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.jacobking.simpleticket.gui.controller.impl.CompanyController">
    <children>
       <Pane layoutX="27.0" layoutY="27.0" prefHeight="74.0" prefWidth="200.0" styleClass="card-pane">
          <children>
@@ -29,13 +29,13 @@
          <children>
             <HBox alignment="CENTER_LEFT" layoutX="14.0" prefHeight="53.0" prefWidth="432.0" spacing="5.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onCreateCompany" prefHeight="25.0" prefWidth="110.0" text="Create Company" />
-                  <Button mnemonicParsing="false" onAction="#onDeleteCompany" prefHeight="25.0" prefWidth="110.0" text="Delete Company" />
-                  <Button mnemonicParsing="false" onAction="#onEditCompany" prefHeight="25.0" prefWidth="110.0" text="Edit Company" />
+                  <Button mnemonicParsing="false" onAction="#onCreateCompany" prefHeight="30.0" prefWidth="135.0" text="Create Company" />
+                  <Button mnemonicParsing="false" onAction="#onDeleteCompany" prefHeight="30.0" prefWidth="135.0" text="Delete Company" />
+                  <Button mnemonicParsing="false" onAction="#onEditCompany" prefHeight="30.0" prefWidth="135.0" text="Edit Company" />
                </children>
             </HBox>
             <TextField fx:id="searchField" layoutX="635.0" layoutY="12.0" prefHeight="30.0" prefWidth="228.0" />
-            <Button layoutX="869.0" layoutY="11.0" mnemonicParsing="false" onAction="#onSearch">
+            <Button layoutX="869.0" layoutY="11.0" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onSearch" prefHeight="30.0">
                <graphic>
                   <Group>
                      <children>

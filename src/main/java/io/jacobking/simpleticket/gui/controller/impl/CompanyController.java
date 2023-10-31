@@ -73,7 +73,6 @@ public class CompanyController extends Controller {
         }
     }
 
-
     private void configureTable() {
         companyTable.setItems(companyProctor.getModelList());
         nameColumn.setCellValueFactory(data -> data.getValue().titleProperty());
