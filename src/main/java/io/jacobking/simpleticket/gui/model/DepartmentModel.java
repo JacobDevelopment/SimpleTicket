@@ -64,6 +64,10 @@ public class DepartmentModel {
         this.supervisorId.setValue(id);
     }
 
+    public void setCompanyId(final int id) {
+        this.companyId.setValue(id);
+    }
+
     public IntegerProperty idProperty() {
         return id;
     }

@@ -6,7 +6,7 @@ import io.jacobking.simpleticket.gui.navigation.Route;
 import io.jacobking.simpleticket.gui.screen.impl.AboutScreen;
 import io.jacobking.simpleticket.gui.screen.impl.DashboardScreen;
 import io.jacobking.simpleticket.gui.screen.impl.company.NewCompanyScreen;
-import io.jacobking.simpleticket.gui.screen.impl.department.NewDepartmentScreen;
+import io.jacobking.simpleticket.gui.screen.impl.department.DepartmentPortalScreen;
 import io.jacobking.simpleticket.gui.screen.impl.employee.NewEmployeeScreen;
 import io.jacobking.simpleticket.gui.screen.impl.ticket.NewTicketScreen;
 import io.jacobking.simpleticket.gui.screen.impl.ticket.QuickUpdateScreen;
@@ -42,12 +42,12 @@ public class SimpleTicket {
     private void initializeNavigation() {
         navigation.register(Route.DASHBOARD, new DashboardScreen());
         navigation.register(Route.NEW_TICKET, new NewTicketScreen());
-        navigation.register(Route.NEW_DEPARTMENT, new NewDepartmentScreen());
         navigation.register(Route.NEW_EMPLOYEE, new NewEmployeeScreen());
         navigation.register(Route.NEW_COMPANY, new NewCompanyScreen());
         navigation.register(Route.QUICK_UPDATE, new QuickUpdateScreen());
         navigation.register(Route.TICKET_VIEWER, new TicketViewerScreen());
         navigation.register(Route.ABOUT, new AboutScreen());
+        navigation.register(Route.DEPARTMENT_PORTAL, new DepartmentPortalScreen());
     }
 
     public Navigation getNavigation() {

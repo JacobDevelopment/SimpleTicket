@@ -7,6 +7,7 @@ import io.jacobking.simpleticket.gui.model.DepartmentModel;
 import io.jacobking.simpleticket.tables.pojos.Department;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 
 import java.util.List;
 import java.util.function.Predicate;
@@ -53,5 +54,9 @@ public class DepartmentProctor extends ProctorImpl<Department, DepartmentModel> 
         return getModelList().stream()
                 .filter(predicate)
                 .collect(Collectors.toCollection(FXCollections::observableArrayList));
+    }
+
+    public FilteredList<DepartmentModel> getModelListFiltered(final Predicate<DepartmentModel> predicate) {
+        return getModelList().filtered(predicate);
     }
 }

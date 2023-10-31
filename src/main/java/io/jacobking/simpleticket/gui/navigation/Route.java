@@ -9,6 +9,7 @@ public enum Route {
     NEW_COMPANY("new_company.fxml"),
     QUICK_UPDATE("quick_update.fxml"),
     TICKET_VIEWER("ticket_viewer.fxml"),
+    DEPARTMENT_PORTAL("department_portal.fxml"),
     ABOUT("about.fxml");
 
     private final String path;

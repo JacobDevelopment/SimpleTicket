@@ -20,9 +20,11 @@ public class DashboardController extends Controller {
 
     @FXML private Button ticketsButton;
     @FXML private Button companyButton;
+    @FXML private Button departmentButton;
 
     @FXML private AnchorPane tickets;
     @FXML private AnchorPane company;
+    @FXML private AnchorPane department;
 
     public DashboardController() {
         super(Navigation.getInstance());
@@ -68,7 +70,8 @@ public class DashboardController extends Controller {
 
     @FXML
     private void onDepartment() {
-
+        activeButton.setValue(departmentButton);
+        activePane.setValue(department);
     }
 
     @FXML
