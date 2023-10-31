@@ -7,6 +7,7 @@ import io.jacobking.simpleticket.gui.controller.proctor.Proctor;
 import io.jacobking.simpleticket.gui.controller.proctor.impl.CompanyProctor;
 import io.jacobking.simpleticket.gui.model.CompanyModel;
 import io.jacobking.simpleticket.gui.navigation.Navigation;
+import io.jacobking.simpleticket.gui.navigation.Route;
 import io.jacobking.simpleticket.tables.pojos.Company;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
@@ -23,10 +24,6 @@ import java.util.ResourceBundle;
 
 public class CompanyController extends Controller {
 
-    private final BooleanProperty editableState = new SimpleBooleanProperty(false);
-    private final BooleanProperty editableCompany = new SimpleBooleanProperty(false);
-    private final ObjectProperty<CompanyModel> companyProperty = new SimpleObjectProperty<>();
-
     private final CompanyProctor companyProctor;
 
     @FXML private Label companyLabel;
@@ -34,11 +31,9 @@ public class CompanyController extends Controller {
     @FXML private TableView<CompanyModel> companyTable;
     @FXML private TableColumn<CompanyModel, String> nameColumn;
     @FXML private TableColumn<CompanyModel, String> abbreviationColumn;
+    @FXML private TableColumn<CompanyModel, String> descriptionColumn;
+    @FXML private TableColumn<CompanyModel, String> createdOnColumn;
 
-    @FXML private TextField companyNameField;
-    @FXML private TextField companyAbbreviationField;
-
-    @FXML private Button saveButton;
     @FXML private SVGPath searchIcon;
     @FXML private TextField searchField;
 
@@ -50,19 +45,6 @@ public class CompanyController extends Controller {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         companyLabel.setText(String.valueOf(companyProctor.getModelList().size()));
-        companyNameField.disableProperty().bindBidirectional(companyAbbreviationField.disableProperty());
-        companyAbbreviationField.disableProperty().bind(editableState.not());
-
-        companyProperty.addListener(((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                companyNameField.setText(newValue.getTitle());
-                companyAbbreviationField.setText(newValue.getAbbreviation());
-            }
-        }));
-
-        saveButton.disableProperty().bind(companyNameField.textProperty().isEmpty()
-                .or(companyAbbreviationField.textProperty().isEmpty()));
-
         addLabelListener();
 
         configureTable();
@@ -72,9 +54,7 @@ public class CompanyController extends Controller {
 
     @FXML
     private void onCreateCompany() {
-        editableState.setValue(true);
-        editableCompany.setValue(false);
-        companyProperty.setValue(new CompanyModel(-1, null, null));
+        getNavigation().display(Route.COMPANY_PORTAL, true);
     }
 
     @FXML
@@ -89,39 +69,17 @@ public class CompanyController extends Controller {
     private void onEditCompany() {
         final CompanyModel model = companyTable.getSelectionModel().getSelectedItem();
         if (model != null) {
-            editableState.setValue(true);
-            editableCompany.setValue(true);
-            companyProperty.setValue(model);
+            getNavigation().display(Route.COMPANY_PORTAL, true, model);
         }
     }
 
-    @FXML
-    private void onSaveCompany() {
-        final String name = companyNameField.getText();
-        final String abbreviation = companyAbbreviationField.getText();
-
-        final CompanyModel model = companyProperty.getValue();
-        model.setTitle(name);
-        model.setAbbreviation(abbreviation);
-
-        final Company company = model.getAsPojoUnsigned();
-        if (editableCompany.getValue()) {
-            Database.update(ServiceType.COMPANY, company);
-            return;
-        }
-
-        companyProctor.create(company);
-        editableCompany.setValue(null);
-        editableState.setValue(false);
-
-        companyNameField.clear();
-        companyAbbreviationField.clear();
-    }
 
     private void configureTable() {
         companyTable.setItems(companyProctor.getModelList());
         nameColumn.setCellValueFactory(data -> data.getValue().titleProperty());
         abbreviationColumn.setCellValueFactory(data -> data.getValue().abbreviationProperty());
+        descriptionColumn.setCellValueFactory(data -> data.getValue().descriptionProperty());
+        createdOnColumn.setCellValueFactory(data -> data.getValue().createdOnProperty());
     }
 
     private void addLabelListener() {
@@ -148,6 +106,11 @@ public class CompanyController extends Controller {
 
             final String abbreviation = model.getAbbreviation();
             if (abbreviation.contains(search)) {
+                companyTable.getSelectionModel().select(model);
+            }
+
+            final String description = model.getDescription();
+            if (description.contains(search)) {
                 companyTable.getSelectionModel().select(model);
             }
         });
