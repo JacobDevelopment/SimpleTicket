@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import org.controlsfx.control.CheckComboBox?>
+
+<AnchorPane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="970.0" styleClass="body" stylesheets="@styles/department.css" visible="false" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.jacobking.simpleticket.gui.controller.impl.EmployeeController">
+   <children>
+      <Pane layoutX="27.0" layoutY="117.0" prefHeight="53.0" prefWidth="917.0" styleClass="menu-pane">
+         <children>
+            <HBox alignment="CENTER_LEFT" layoutX="14.0" prefHeight="53.0" prefWidth="496.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onCreateEmployee" prefHeight="30.0" prefWidth="135.0" text="Create Employee" />
+                  <Button mnemonicParsing="false" onAction="#onDeleteEmployee" prefHeight="30.0" prefWidth="135.0" text="Delete Employee" />
+                  <Button mnemonicParsing="false" onAction="#onEditEmployee" prefHeight="30.0" prefWidth="135.0" text="Edit Employee" />
+               </children>
+            </HBox>
+            <TextField fx:id="searchField" layoutX="635.0" layoutY="12.0" prefHeight="30.0" prefWidth="228.0" />
+            <Button layoutX="869.0" layoutY="11.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#onSearch" prefHeight="30.0">
+               <graphic>
+                  <Group>
+                     <children>
+                        <SVGPath fx:id="searchIcon" content="M269.46,1163.45 C263.17,1163.45 258.071,1158.44 258.071,1152.25 C258.071,1146.06 263.17,1141.04 269.46,1141.04 C275.75,1141.04 280.85,1146.06 280.85,1152.25 C280.85,1158.44 275.75,1163.45 269.46,1163.45 L269.46,1163.45 Z M287.688,1169.25 L279.429,1161.12 C281.591,1158.77 282.92,1155.67 282.92,1152.25 C282.92,1144.93 276.894,1139 269.46,1139 C262.026,1139 256,1144.93 256,1152.25 C256,1159.56 262.026,1165.49 269.46,1165.49 C272.672,1165.49 275.618,1164.38 277.932,1162.53 L286.224,1170.69 C286.629,1171.09 287.284,1171.09 287.688,1170.69 C288.093,1170.3 288.093,1169.65 287.688,1169.25 L287.688,1169.25 Z" fill="WHITE" scaleX="0.75" scaleY="0.75" />
+                     </children>
+                  </Group>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="27.0" layoutY="185.0" prefHeight="577.0" prefWidth="917.0" styleClass="table-pane">
+         <children>
+            <TableView fx:id="employeeTable" layoutX="17.0" layoutY="48.0" prefHeight="521.0" prefWidth="884.0">
+               <columns>
+                  <TableColumn fx:id="companyColumn" prefWidth="113.0" text="Company" />
+                  <TableColumn fx:id="nameColumn" prefWidth="195.0" text="Name" />
+                  <TableColumn fx:id="departmentColumn" prefWidth="168.0" text="Department" />
+                  <TableColumn fx:id="titleColumn" prefWidth="233.0" text="Title" />
+                  <TableColumn fx:id="emailColumn" prefWidth="210.0" text="E-mail" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <Label layoutX="17.0" layoutY="14.0" styleClass="table-header" text="Employees" />
+            <CheckComboBox fx:id="hideBox" layoutX="141.0" layoutY="15.0" prefHeight="25.0" prefWidth="179.0" showCheckedCount="true" title="Showing Companies" />
+         </children>
+      </Pane>
+      <Pane layoutX="27.0" layoutY="34.0" prefHeight="74.0" prefWidth="200.0" styleClass="card-pane">
+         <children>
+            <Circle fill="#034f75" layoutX="35.0" layoutY="37.0" radius="21.0" stroke="#034f75" strokeType="INSIDE" />
+            <Group layoutX="11.0" layoutY="12.0" scaleX="0.75" scaleY="0.75">
+               <children>
+                  <SVGPath content="M16.8786 28.2001C17.3814 28.0774 17.8971 28.3283 18.1254 28.7927L22.1893 39.0646L22.786 32.0589C22.8276 31.7097 22.5612 31.4362 22.3125 31.1876C21.75 30.6251 21.75 28.3751 22.3125 27.8126C22.4927 27.6323 22.8462 27.6831 23.262 27.7429C23.495 27.7763 23.7474 27.8125 24 27.8125C24.2524 27.8125 24.505 27.7763 24.7379 27.7427C25.1537 27.683 25.5073 27.6323 25.6875 27.8126C26.25 28.3752 26.25 30.6251 25.6875 31.1876C25.4371 31.4379 25.173 31.7195 25.2149 32.0711L25.8105 39.0649L29.8746 28.7927C30.1029 28.3283 30.6186 28.0774 31.1214 28.2001C36.5255 29.5183 42 32.2063 42 36.25V43H6V36.25C6 32.2063 11.4745 29.5183 16.8786 28.2001Z" fill="WHITE" />
+                  <SVGPath content="M24 25C28.9725 25 33 20.9725 33 16C33 11.0275 28.9725 7 24 7C19.0275 7 15 11.0275 15 16C15 20.9725 19.0275 25 24 25Z" fill="WHITE" />
+               </children></Group>
+            <Label layoutX="96.0" layoutY="12.0" styleClass="card-header" text="Total Employees" />
+            <Label fx:id="employeeLabel" layoutX="136.0" layoutY="39.0" styleClass="card-content" text="0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

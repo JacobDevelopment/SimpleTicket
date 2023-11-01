@@ -1,0 +1,44 @@
+@import url("table.css");
+@import url("button.css");
+@import url("separator.css");
+
+.body {
+    -fx-background-color: -fx-offset;
+}
+
+.card-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+}
+
+.card-header {
+    -fx-text-fill: -fx-primary;
+}
+
+.card-content {
+    -fx-text-fill: -fx-primary;
+    -fx-font-weight: bolder;
+    -fx-font-size: 15px;
+}
+
+.menu-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+}
+
+.table-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+}
+
+.table-header {
+    -fx-text-fill: -fx-primary;
+    -fx-font-weight: bolder;
+    -fx-font-size: 1.5em;
+}
+
+.field-labels {
+    -fx-text-fill: -fx-primary;
+    -fx-font-weight: bolder;
+    -fx-font-size: 15px;
+}

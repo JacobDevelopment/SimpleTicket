@@ -1,4 +1,4 @@
-package io.jacobking.simpleticket.gui.controller.impl;
+package io.jacobking.simpleticket.gui.controller.impl.misc;
 
 import io.jacobking.simpleticket.core.Version;
 import io.jacobking.simpleticket.gui.controller.Controller;

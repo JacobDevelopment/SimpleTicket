@@ -1,36 +1,34 @@
 package io.jacobking.simpleticket.gui.controller.impl;
 
 import io.jacobking.simpleticket.core.SimpleTicket;
-import io.jacobking.simpleticket.core.Version;
 import io.jacobking.simpleticket.gui.controller.Controller;
-import io.jacobking.simpleticket.gui.model.MenuModel;
 import io.jacobking.simpleticket.gui.navigation.Navigation;
-import io.jacobking.simpleticket.gui.navigation.Route;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.css.PseudoClass;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class DashboardController extends Controller {
 
-    private final ObjectProperty<MenuModel> active = new SimpleObjectProperty<>();
+    private final ObjectProperty<AnchorPane> activePane = new SimpleObjectProperty<>();
+    private final ObjectProperty<Button> activeButton = new SimpleObjectProperty<>();
 
+    @FXML private Button homeButton;
+    @FXML private Button ticketsButton;
+    @FXML private Button companyButton;
+    @FXML private Button departmentButton;
+    @FXML private Button employeeButton;
 
-    private MenuModel ticketModel;
-    private MenuModel managementModel;
-
-    @FXML private Pane ticketPane;
-    @FXML private Pane managementPane;
-
-    @FXML private AnchorPane ticketAnchor;
-    @FXML private AnchorPane managementAnchor;
-
-    @FXML private Label versionLabel;
+    @FXML private AnchorPane home;
+    @FXML private AnchorPane tickets;
+    @FXML private AnchorPane company;
+    @FXML private AnchorPane department;
+    @FXML private AnchorPane employee;
 
     public DashboardController() {
         super(Navigation.getInstance());
@@ -38,38 +36,57 @@ public class DashboardController extends Controller {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.ticketModel = new MenuModel(ticketPane, ticketAnchor);
-        this.managementModel = new MenuModel(managementPane, managementAnchor);
-
-        active.setValue(ticketModel);
-
-        active.addListener(((observable, oldValue, newValue) -> {
-            if (oldValue == null) {
-                newValue.enable();
-                return;
+        activePane.addListener(((observable, oldValue, newValue) -> {
+            if (oldValue != null) {
+                disablePane(oldValue);
             }
 
-            oldValue.disable();
-            newValue.enable();
+            if (newValue != null) {
+                enablePane(newValue);
+            }
         }));
 
-        versionLabel.setText(Version.getCurrent());
+        activeButton.addListener(((observable, oldValue, newValue) -> {
+            if (oldValue != null) {
+                removeButton(oldValue);
+            }
+
+            if (newValue != null) {
+                enableButton(newValue);
+            }
+        }));
+        activePane.set(tickets);
+        activeButton.set(ticketsButton);
     }
 
+    @FXML
+    private void onHome() {
+        activeButton.setValue(homeButton);
+        activePane.setValue(home);
+    }
 
     @FXML
     private void onTickets() {
-        setActive(ticketModel);
+        activeButton.setValue(ticketsButton);
+        activePane.setValue(tickets);
     }
 
     @FXML
-    private void onManagement() {
-        setActive(managementModel);
+    private void onCompany() {
+        activeButton.setValue(companyButton);
+        activePane.setValue(company);
     }
 
     @FXML
-    private void onAbout() {
-        getNavigation().display(Route.ABOUT, true);
+    private void onDepartment() {
+        activeButton.setValue(departmentButton);
+        activePane.setValue(department);
+    }
+
+    @FXML
+    private void onEmployee() {
+        activeButton.setValue(employeeButton);
+        activePane.setValue(employee);
     }
 
     @FXML
@@ -77,15 +94,27 @@ public class DashboardController extends Controller {
 
     }
 
+
     @FXML
     private void onExit() {
         SimpleTicket.getInstance().shutdown();
     }
 
-    private void setActive(final MenuModel model) {
-        if (model == null)
-            return;
-        active.setValue(model);
+    private void enableButton(final Button button) {
+        button.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), true);
     }
 
+    private void removeButton(final Button button) {
+        button.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), false);
+    }
+
+    private void enablePane(final AnchorPane pane) {
+        pane.setVisible(true);
+        pane.setDisable(false);
+    }
+
+    private void disablePane(final AnchorPane pane) {
+        pane.setVisible(false);
+        pane.setDisable(true);
+    }
 }

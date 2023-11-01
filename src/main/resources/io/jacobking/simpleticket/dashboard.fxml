@@ -1,59 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@styles/dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass="body" stylesheets="@styles/dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="800.0" prefWidth="200.0" styleClass="sidebar">
+      <AnchorPane layoutX="7.0" layoutY="7.0" prefHeight="787.0" prefWidth="200.0" styleClass="sidebar">
          <children>
-            <Label layoutX="9.0" styleClass="header" text="SimpleTicket" />
-            <Label fx:id="versionLabel" layoutX="36.0" layoutY="38.0" styleClass="header-version" text="undefined" />
-            <AnchorPane layoutY="271.0" prefHeight="229.0" prefWidth="200.0">
+            <ImageView fitHeight="47.0" fitWidth="62.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons/icon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="64.0" layoutY="20.0" prefHeight="35.0" prefWidth="116.0" styleClass="sidebar-title" text="SimpleTicket" />
+            <VBox alignment="TOP_CENTER" layoutY="108.0" prefHeight="382.0" prefWidth="200.0">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="229.0" prefWidth="200.0">
-                     <children>
-                        <Pane fx:id="ticketPane" maxHeight="-Infinity" minHeight="-Infinity" onMousePressed="#onTickets" prefHeight="30.0" prefWidth="200.0" styleClass="menu-pane">
-                           <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-1.0" prefHeight="30.0" prefWidth="200.0" styleClass="menu-label" text="Tickets" textAlignment="CENTER" />
-                           </children>
-                        </Pane>
-                        <Pane fx:id="managementPane" maxHeight="-Infinity" minHeight="-Infinity" onMousePressed="#onManagement" prefHeight="30.0" prefWidth="200.0" styleClass="menu-pane">
-                           <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-1.0" prefHeight="30.0" prefWidth="200.0" styleClass="menu-label" text="Management" textAlignment="CENTER" />
-                           </children>
-                        </Pane>
-                     </children>
-                  </VBox>
+                  <Button fx:id="homeButton" contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onHome" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Home" />
+                  <Button fx:id="ticketsButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onTickets" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Tickets" />
+                  <Button fx:id="companyButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onCompany" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Company" />
+                  <Button fx:id="departmentButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onDepartment" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Department" />
+                  <Button fx:id="employeeButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onEmployee" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Employee" />
+                  <Button contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onSettings" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Settings" />
                </children>
-            </AnchorPane>
-            <Button layoutX="9.0" layoutY="765.0" mnemonicParsing="false" onAction="#onExit" prefHeight="27.0" prefWidth="182.0" styleClass="button-offset-white" stylesheets="@styles/button.css" text="Exit">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button disable="true" layoutX="10.0" layoutY="733.0" mnemonicParsing="false" onAction="#onSettings" prefHeight="27.0" prefWidth="182.0" styleClass="button-offset-white" stylesheets="@styles/button.css" text="Settings">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutX="10.0" layoutY="702.0" mnemonicParsing="false" onAction="#onAbout" prefHeight="27.0" prefWidth="182.0" styleClass="button-offset-white" stylesheets="@styles/button.css" text="About">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+            </VBox>
+            <Button contentDisplay="TOP" layoutX="7.0" layoutY="734.0" mnemonicParsing="false" onAction="#onExit" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Exit" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="200.0" layoutY="-1.0" prefHeight="800.0" prefWidth="1000.0">
-         <children>
-            <fx:include fx:id="ticketAnchor" source="tickets.fxml" />
-            <fx:include fx:id="managementAnchor" source="management.fxml" />
-         </children>
+      <AnchorPane layoutX="207.0" layoutY="6.0" prefHeight="790.0" prefWidth="970.0">
+         <fx:include id="home" fx:id="home" source="home.fxml" />
+         <fx:include id="tickets" fx:id="tickets" source="tickets.fxml" />
+         <fx:include id="company" fx:id="company" source="company.fxml" />
+         <fx:include id="department" fx:id="department" source="department.fxml" />
+         <fx:include id="employee" fx:id="employee" source="employee.fxml" />
       </AnchorPane>
    </children>
 </AnchorPane>

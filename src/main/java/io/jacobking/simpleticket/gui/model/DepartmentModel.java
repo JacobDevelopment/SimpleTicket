@@ -11,13 +11,15 @@ public class DepartmentModel {
     private final IntegerProperty id;
     private final StringProperty title;
     private final StringProperty abbreviation;
+    private final StringProperty description;
     private final IntegerProperty supervisorId;
     private final IntegerProperty companyId;
 
-    public DepartmentModel(int id, String title, String abbreviation, int supervisorId, int companyId) {
+    public DepartmentModel(int id, String title, String abbreviation, String description, int supervisorId, int companyId) {
         this.id = new SimpleIntegerProperty(id);
         this.title = new SimpleStringProperty(title);
         this.abbreviation = new SimpleStringProperty(abbreviation);
+        this.description = new SimpleStringProperty(description);
         this.supervisorId = new SimpleIntegerProperty(supervisorId);
         this.companyId = new SimpleIntegerProperty(companyId);
     }
@@ -27,6 +29,7 @@ public class DepartmentModel {
                 department.getId(),
                 department.getTitle(),
                 department.getAbbreviation(),
+                department.getDescription(),
                 department.getSupervisorId(),
                 department.getCompanyId()
         );
@@ -64,6 +67,10 @@ public class DepartmentModel {
         this.supervisorId.setValue(id);
     }
 
+    public void setCompanyId(final int id) {
+        this.companyId.setValue(id);
+    }
+
     public IntegerProperty idProperty() {
         return id;
     }
@@ -84,11 +91,24 @@ public class DepartmentModel {
         return companyId;
     }
 
+    public String getDescription() {
+        return description.getValueSafe();
+    }
+
+    public StringProperty descriptionProperty() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
     public Department getAsPojo() {
         return new Department(
                 getId(),
                 getTitle(),
                 getAbbreviation(),
+                getDescription(),
                 getSupervisorId(),
                 getCompanyId()
         );

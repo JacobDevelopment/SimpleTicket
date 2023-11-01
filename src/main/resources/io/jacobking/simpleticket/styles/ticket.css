@@ -1,15 +1,39 @@
-@import url("core.css");
-@import url("button.css");
 @import url("table.css");
+@import url("button.css");
 
-.separator {
-    -fx-padding: 1;
+.body {
     -fx-background-color: -fx-offset;
-
 }
 
-.separator .line {
-    -fx-background-color: -fx-offset;
-    -fx-pref-height: 5;
-    -fx-border-color: none;
+.card-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
 }
+
+.card-header {
+    -fx-text-fill: -fx-primary;
+}
+
+.card-content {
+    -fx-text-fill: -fx-primary;
+    -fx-font-weight: bolder;
+    -fx-font-size: 15px;
+}
+
+.control-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+}
+
+
+.list-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+}
+
+.list-pane-header {
+    -fx-text-fill: -fx-primary;
+    -fx-font-weight: bolder;
+    -fx-font-size: 1.5em;
+}
+

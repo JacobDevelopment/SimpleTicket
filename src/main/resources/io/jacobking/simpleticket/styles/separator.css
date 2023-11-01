@@ -1,0 +1,12 @@
+@import url("core.css");
+
+.separator {
+    -fx-padding: 8;
+}
+
+.separator .line {
+    -fx-background-color: -fx-primary;
+    -fx-pref-height: 5;
+    -fx-border-color: -fx-primary;
+}
+

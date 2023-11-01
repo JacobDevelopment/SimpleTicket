@@ -2,14 +2,18 @@
 @import url("button.css");
 @import url("table.css");
 
-.separator {
-    -fx-padding: 1;
+.top-pane {
     -fx-background-color: -fx-offset;
-
 }
 
-.separator .line {
-    -fx-background-color: -fx-offset;
-    -fx-pref-height: 5;
-    -fx-border-color: none;
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+    -fx-rotate: 90;
+    -fx-padding: -20;
+}
+
+.tab-pane {
+    -fx-tab-min-height: 15em;
+    -fx-tab-max-height: -fx-tab-min-height;
+    -fx-tab-min-width: 3em;
+    -fx-tab-max-width: -fx-tab-min-width;
 }

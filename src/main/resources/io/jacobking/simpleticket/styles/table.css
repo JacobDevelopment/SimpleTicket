@@ -1,42 +1,50 @@
-.table-top-header {
-    -fx-text-fill: -fx-offset-lighter;
-    -fx-font-size: 20px;
-    -fx-font-weight: bolder;
-}
+@import url("core.css");
 
 .table-view {
     -fx-background-color: transparent;
 }
 
-.table-view:focused {
-    -fx-background-color: none;
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
 }
 
 .table-view .column-header-background {
-    -fx-background-color: -fx-offset;
-}
-
-.table-view .column-header-background .label {
-    -fx-background-color: transparent;
-    -fx-text-fill: white;
+    -fx-background-color: white;
 }
 
 .table-view .column-header {
-    -fx-background-color: transparent;
+    -fx-background-color: white;
+    -fx-border-style: none;
 }
 
-.table-view .table-column {
-    -fx-alignment: CENTER;
+.table-view .column-header .label {
+    -fx-font-weight: bolder;
+    -fx-font-size: 1.2em;
+    -fx-text-fill: -fx-primary;
+    -fx-alignment: center;
+}
+
+.table-row-cell {
+    -fx-background-color: none;
+    -fx-border-color: -fx-offset;
+    -fx-border-width: 0 0 1 0;
+    -fx-table-cell-border-color: transparent;
+    -fx-cell-size: 50px;
+}
+
+.table-row-cell:hover {
+    -fx-cursor: hand;
 }
 
 .table-row-cell:selected {
-    -fx-background-color: -fx-offset-lighter;
-    -fx-text-fill: white;
-    -fx-font-weight: bolder;
+    -fx-background-color: -fx-offset;
+    -fx-text-fill: -fx-primary;
 }
 
-.empty-label {
-    -fx-text-fill: -fx-offset-darker;
-    -fx-font-weight: bolder;
-    -fx-font-size: 30px;
+.table-column {
+    -fx-alignment: center;
 }

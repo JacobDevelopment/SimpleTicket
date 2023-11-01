@@ -1,40 +1,40 @@
 @import url("core.css");
-@import url("button.css");
 
-
-.sidebar {
+.body {
     -fx-background-color: -fx-offset;
 }
 
-.header {
-    -fx-font-weight: bolder;
-    -fx-text-fill: -fx-white;
-    -fx-font-size: 30px;
+.sidebar {
+    -fx-background-color: -fx-primary;
+    -fx-background-radius: 15px;
 }
 
-.header-version {
+.sidebar-title {
+    -fx-text-fill: white;
+    -fx-font-size: 1.5em;
     -fx-font-weight: bolder;
-    -fx-text-fill: -fx-contrast;
-    -fx-font-size: 20px;
 }
 
-.menu-label {
+.sidebar-button {
+    -fx-background-color: transparent;
     -fx-font-weight: bolder;
-    -fx-text-fill: -fx-white;
-    -fx-font-size: 18px;
+    -fx-font-size: 15px;
+    -fx-text-fill: white;
 }
 
-.menu-pane:hover {
-    -fx-background-color: -fx-white;
+.sidebar-button:hover {
+    -fx-background-color: white;
+    -fx-text-fill: -fx-primary;
+    -fx-background-radius: 15px;
+    -fx-font-weight: bolder;
+    -fx-font-size: 15px;
     -fx-cursor: hand;
 }
 
-.menu-label:hover {
-    -fx-text-fill: -fx-offset;
-}
-
-.active-pane {
+.sidebar-button:selected {
     -fx-background-color: white;
-    -fx-text-fill: -fx-offset;
+    -fx-text-fill: -fx-primary;
+    -fx-background-radius: 15px;
+    -fx-font-weight: bolder;
+    -fx-font-size: 15px;
 }
-

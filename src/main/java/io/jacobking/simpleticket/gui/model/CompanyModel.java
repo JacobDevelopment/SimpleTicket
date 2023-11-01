@@ -11,18 +11,24 @@ public class CompanyModel {
     private final IntegerProperty id;
     private final StringProperty title;
     private final StringProperty abbreviation;
+    private final StringProperty description;
+    private final StringProperty createdOn;
 
-    public CompanyModel(int id, String title, String abbreviation) {
+    public CompanyModel(int id, String title, String abbreviation, String description, String createdOn) {
         this.id = new SimpleIntegerProperty(id);
         this.title = new SimpleStringProperty(title);
         this.abbreviation = new SimpleStringProperty(abbreviation);
+        this.description = new SimpleStringProperty(description);
+        this.createdOn = new SimpleStringProperty(createdOn);
     }
 
     public CompanyModel(final Company company) {
         this(
                 company.getId(),
                 company.getTitle(),
-                company.getAbbreviation()
+                company.getAbbreviation(),
+                company.getDescription(),
+                company.getCreatedOn()
         );
     }
 
@@ -58,11 +64,38 @@ public class CompanyModel {
         return abbreviation;
     }
 
+    public String getDescription() {
+        return description.getValueSafe();
+    }
+
+    public StringProperty descriptionProperty() {
+        return description;
+    }
+
+    public String getCreatedOn() {
+        return createdOn.getValueSafe();
+    }
+
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
+    public void setCreatedOn(String createdOn) {
+        this.createdOn.setValue(createdOn);
+    }
+
+    public StringProperty createdOnProperty() {
+        return createdOn;
+    }
+
     public Company getAsPojo() {
         return new Company(
                 getId(),
                 getTitle(),
-                getAbbreviation()
+                getAbbreviation(),
+                getDescription(),
+                getCreatedOn()
         );
     }
+
 }

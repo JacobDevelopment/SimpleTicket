@@ -1,8 +1,0 @@
-@import url("core.css");
-@import url("button.css");
-
-.update-header {
-    -fx-text-fill: -fx-primary;
-    -fx-font-weight: bolder;
-    -fx-font-size: 20px;
-}

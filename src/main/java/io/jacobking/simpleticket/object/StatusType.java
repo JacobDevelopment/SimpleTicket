@@ -1,5 +1,8 @@
 package io.jacobking.simpleticket.object;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public enum StatusType {
 
     OPEN("Open"),
@@ -14,5 +17,13 @@ public enum StatusType {
 
     public String getDescriptor() {
         return descriptor;
+    }
+
+    public static ObservableList<String> getObservableList() {
+        final ObservableList<String> list = FXCollections.observableArrayList();
+        for (final StatusType type : values()) {
+            list.add(type.getDescriptor());
+        }
+        return list;
     }
 }

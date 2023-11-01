@@ -58,7 +58,7 @@ To see the license, click <a href="https://github.com/JacobDevelopment/SimpleTic
 
 
 ## Roadmap
-### 1.0.0 (Production)
+### 1.0.0 (Production w/ Potential Implementations)
 - [ ] Dialog/Alert System
   - [ ] Create a confirmation dialog that requests user confirmation when deleting table entries (e.g. departments, tickets, employees, etc.)
   - [ ] Create an error alert when something goes wrong (or if you cannot do a certain action.)
@@ -67,3 +67,10 @@ To see the license, click <a href="https://github.com/JacobDevelopment/SimpleTic
   - [ ] Other minor UI tweaks and clean-ups. I'm not creatively inclined.
 - [ ] Add checks to see if the database file & system.properties file already existed on new installation.
     - [ ] We should also look into how we will roll-out new updates?
+- [ ] Implement ControlsFX for better UI options?
+  - [ ] Potentially use GridView to display tickets (rather than the table?)
+  - [ ] Can implement notifications potentially?
+  - [ ] Can implement SearchableComboBox? Rather than the way we currently do it?
+  - [ ] Can implement TaskProgressView (to show ticket status/priorities?)
+  - [ ] Can implement better text fields along with decoration & validation.
+  - [ ] Can possibly implement toggle switch (for editing modes?)
