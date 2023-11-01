@@ -19,6 +19,7 @@
             <Label layoutX="64.0" layoutY="20.0" prefHeight="35.0" prefWidth="116.0" styleClass="sidebar-title" text="SimpleTicket" />
             <VBox alignment="TOP_CENTER" layoutY="108.0" prefHeight="382.0" prefWidth="200.0">
                <children>
+                  <Button fx:id="homeButton" contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onHome" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Home" />
                   <Button fx:id="ticketsButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onTickets" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Tickets" />
                   <Button fx:id="companyButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onCompany" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Company" />
                   <Button fx:id="departmentButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onDepartment" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Department" />
@@ -30,6 +31,7 @@
          </children>
       </AnchorPane>
       <AnchorPane layoutX="207.0" layoutY="6.0" prefHeight="790.0" prefWidth="970.0">
+         <fx:include id="home" fx:id="home" source="home.fxml" />
          <fx:include id="tickets" fx:id="tickets" source="tickets.fxml" />
          <fx:include id="company" fx:id="company" source="company.fxml" />
          <fx:include id="department" fx:id="department" source="department.fxml" />

@@ -18,11 +18,13 @@ public class DashboardController extends Controller {
     private final ObjectProperty<AnchorPane> activePane = new SimpleObjectProperty<>();
     private final ObjectProperty<Button> activeButton = new SimpleObjectProperty<>();
 
+    @FXML private Button homeButton;
     @FXML private Button ticketsButton;
     @FXML private Button companyButton;
     @FXML private Button departmentButton;
     @FXML private Button employeeButton;
 
+    @FXML private AnchorPane home;
     @FXML private AnchorPane tickets;
     @FXML private AnchorPane company;
     @FXML private AnchorPane department;
@@ -53,7 +55,14 @@ public class DashboardController extends Controller {
                 enableButton(newValue);
             }
         }));
+        activePane.set(tickets);
+        activeButton.set(ticketsButton);
+    }
 
+    @FXML
+    private void onHome() {
+        activeButton.setValue(homeButton);
+        activePane.setValue(home);
     }
 
     @FXML
