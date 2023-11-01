@@ -2,6 +2,7 @@ package io.jacobking.simpleticket.gui.controller.impl;
 
 import io.jacobking.simpleticket.database.Database;
 import io.jacobking.simpleticket.database.service.ServiceType;
+import io.jacobking.simpleticket.gui.alert.Alerts;
 import io.jacobking.simpleticket.gui.controller.Controller;
 import io.jacobking.simpleticket.gui.controller.proctor.Proctor;
 import io.jacobking.simpleticket.gui.controller.proctor.impl.CompanyProctor;
@@ -60,17 +61,27 @@ public class CompanyController extends Controller {
     @FXML
     private void onDeleteCompany() {
         final CompanyModel model = companyTable.getSelectionModel().getSelectedItem();
-        if (model != null) {
-            companyProctor.delete(model.getId());
+        if (model == null) {
+            Alerts.notSelected();
+            return;
         }
+
+        Alerts.showDefaultConfirmation().ifPresent(type -> {
+            if (type == ButtonType.YES) {
+                companyProctor.delete(model.getId());
+            }
+        });
     }
 
     @FXML
     private void onEditCompany() {
         final CompanyModel model = companyTable.getSelectionModel().getSelectedItem();
-        if (model != null) {
-            getNavigation().display(Route.COMPANY_PORTAL, true, model);
+        if (model == null) {
+            Alerts.notSelected();
+            return;
         }
+
+        getNavigation().display(Route.COMPANY_PORTAL, true, model);
     }
 
     private void configureTable() {

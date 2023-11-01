@@ -2,6 +2,7 @@ package io.jacobking.simpleticket.gui.controller.impl;
 
 import io.jacobking.simpleticket.database.Database;
 import io.jacobking.simpleticket.database.service.ServiceType;
+import io.jacobking.simpleticket.gui.alert.Alerts;
 import io.jacobking.simpleticket.gui.controller.Controller;
 import io.jacobking.simpleticket.gui.controller.proctor.Proctor;
 import io.jacobking.simpleticket.gui.controller.proctor.impl.CompanyProctor;
@@ -20,10 +21,7 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.util.StringConverter;
 import org.controlsfx.control.CheckComboBox;
 
@@ -72,17 +70,27 @@ public class DepartmentController extends Controller {
     @FXML
     private void onDeleteDepartment() {
         final DepartmentModel model = departmentTable.getSelectionModel().getSelectedItem();
-        if (model != null) {
-            departmentProctor.delete(model.getId());
+        if (model == null) {
+            Alerts.notSelected();
+            return;
         }
+
+        Alerts.showDefaultConfirmation().ifPresent(type -> {
+            if (type == ButtonType.YES) {
+                departmentProctor.delete(model.getId());
+            }
+        });
     }
 
     @FXML
     private void onEditDepartment() {
         final DepartmentModel model = departmentTable.getSelectionModel().getSelectedItem();
-        if (model != null) {
-            getNavigation().display(Route.DEPARTMENT_PORTAL, true, model);
+        if (model == null) {
+            Alerts.notSelected();
+            return;
         }
+
+        getNavigation().display(Route.DEPARTMENT_PORTAL, true, model);
     }
 
     @FXML
