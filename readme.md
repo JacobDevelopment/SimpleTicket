@@ -63,14 +63,14 @@ To see the license, click <a href="https://github.com/JacobDevelopment/SimpleTic
   - [ ] Create a confirmation dialog that requests user confirmation when deleting table entries (e.g. departments, tickets, employees, etc.)
   - [ ] Create an error alert when something goes wrong (or if you cannot do a certain action.)
 - [ ] Implement a logging system for more future debugging (SQL queries included, possibly? Nothing is "sensitive" information yet.)
-- [ ] Separate the management UI into a TabPane potentially.
-  - [ ] Other minor UI tweaks and clean-ups. I'm not creatively inclined.
+- [ ] ~~Separate the management UI into a TabPane potentially.~~
+  - [X] Other minor UI tweaks and clean-ups. I'm not creatively inclined.
 - [ ] Add checks to see if the database file & system.properties file already existed on new installation.
     - [ ] We should also look into how we will roll-out new updates?
-- [ ] Implement ControlsFX for better UI options?
-  - [ ] Potentially use GridView to display tickets (rather than the table?)
-  - [ ] Can implement notifications potentially?
-  - [ ] Can implement SearchableComboBox? Rather than the way we currently do it?
+- [X] Implement ControlsFX for better UI options?
+  - [ ] ~~Potentially use GridView to display tickets (rather than the table?)~~
+  - [ ] ~~Can implement notifications potentially?~~
+  - [X] Can implement SearchableComboBox? Rather than the way we currently do it?
   - [ ] Can implement TaskProgressView (to show ticket status/priorities?)
   - [ ] Can implement better text fields along with decoration & validation.
-  - [ ] Can possibly implement toggle switch (for editing modes?)
+  - [ ] ~~Can possibly implement toggle switch (for editing modes?)~~
