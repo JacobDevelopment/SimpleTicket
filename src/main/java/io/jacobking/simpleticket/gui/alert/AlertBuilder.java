@@ -1,11 +1,9 @@
 package io.jacobking.simpleticket.gui.alert;
 
 import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
-import org.w3c.dom.events.EventTarget;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

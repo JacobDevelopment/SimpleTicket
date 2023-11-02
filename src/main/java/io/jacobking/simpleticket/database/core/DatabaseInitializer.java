@@ -1,6 +1,7 @@
 package io.jacobking.simpleticket.database.core;
 
 import io.jacobking.simpleticket.App;
+import io.jacobking.simpleticket.gui.alert.Alerts;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class DatabaseInitializer {
     public void executeQueries() {
         final String[] queries = getSplitQueries();
         if (queries.length == 0) {
-            System.out.println("Empty Current Queries");
+            Alerts.showError("Empty Split Queries", "sql/current.sql has no queries!");
             return;
         }
 
@@ -39,7 +40,7 @@ public class DatabaseInitializer {
         try (final Statement statement = connection.createStatement()) {
             statement.execute(sql);
         } catch (SQLException e) {
-            e.printStackTrace();
+            Alerts.showException(e.fillInStackTrace(), "SQL Exception", "There was an error executing a query.");
         }
     }
 

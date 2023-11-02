@@ -1,7 +1,5 @@
 package io.jacobking.simpleticket.gui.controller.impl;
 
-import io.jacobking.simpleticket.database.Database;
-import io.jacobking.simpleticket.database.service.ServiceType;
 import io.jacobking.simpleticket.gui.alert.Alerts;
 import io.jacobking.simpleticket.gui.controller.Controller;
 import io.jacobking.simpleticket.gui.controller.proctor.Proctor;
@@ -9,16 +7,10 @@ import io.jacobking.simpleticket.gui.controller.proctor.impl.CompanyProctor;
 import io.jacobking.simpleticket.gui.model.CompanyModel;
 import io.jacobking.simpleticket.gui.navigation.Navigation;
 import io.jacobking.simpleticket.gui.navigation.Route;
-import io.jacobking.simpleticket.tables.pojos.Company;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.shape.SVGPath;
-import org.w3c.dom.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;

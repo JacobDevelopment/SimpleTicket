@@ -7,18 +7,14 @@ import io.jacobking.simpleticket.gui.controller.Controller;
 import io.jacobking.simpleticket.gui.controller.proctor.Proctor;
 import io.jacobking.simpleticket.gui.controller.proctor.impl.CompanyProctor;
 import io.jacobking.simpleticket.gui.controller.proctor.impl.DepartmentProctor;
-import io.jacobking.simpleticket.gui.controller.proctor.impl.EmployeeProctor;
 import io.jacobking.simpleticket.gui.model.CompanyModel;
 import io.jacobking.simpleticket.gui.model.DepartmentModel;
 import io.jacobking.simpleticket.gui.navigation.Navigation;
 import io.jacobking.simpleticket.gui.navigation.Route;
 import io.jacobking.simpleticket.tables.pojos.Company;
-import io.jacobking.simpleticket.tables.pojos.Department;
 import io.jacobking.simpleticket.tables.pojos.Employee;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -26,11 +22,8 @@ import javafx.util.StringConverter;
 import org.controlsfx.control.CheckComboBox;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class DepartmentController extends Controller {
 

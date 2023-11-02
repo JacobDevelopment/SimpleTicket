@@ -8,7 +8,6 @@ import io.jacobking.simpleticket.gui.controller.proctor.Proctor;
 import io.jacobking.simpleticket.gui.controller.proctor.impl.CompanyProctor;
 import io.jacobking.simpleticket.gui.controller.proctor.impl.EmployeeProctor;
 import io.jacobking.simpleticket.gui.model.CompanyModel;
-import io.jacobking.simpleticket.gui.model.DepartmentModel;
 import io.jacobking.simpleticket.gui.model.EmployeeModel;
 import io.jacobking.simpleticket.gui.navigation.Navigation;
 import io.jacobking.simpleticket.gui.navigation.Route;

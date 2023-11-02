@@ -9,8 +9,6 @@ import io.jacobking.simpleticket.gui.model.TicketModel;
 import io.jacobking.simpleticket.gui.navigation.Navigation;
 import io.jacobking.simpleticket.gui.navigation.Route;
 import io.jacobking.simpleticket.tables.pojos.Employee;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ListChangeListener;
 import javafx.collections.transformation.FilteredList;

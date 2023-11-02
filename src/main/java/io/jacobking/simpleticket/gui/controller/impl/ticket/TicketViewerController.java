@@ -1,7 +1,6 @@
 package io.jacobking.simpleticket.gui.controller.impl.ticket;
 
 import io.jacobking.simpleticket.database.Database;
-import io.jacobking.simpleticket.database.service.ServiceDispatcher;
 import io.jacobking.simpleticket.database.service.ServiceType;
 import io.jacobking.simpleticket.gui.controller.Controller;
 import io.jacobking.simpleticket.gui.controller.proctor.Proctor;
@@ -11,21 +10,11 @@ import io.jacobking.simpleticket.gui.model.EmployeeModel;
 import io.jacobking.simpleticket.gui.model.TicketModel;
 import io.jacobking.simpleticket.gui.navigation.Navigation;
 import io.jacobking.simpleticket.gui.navigation.Route;
-import io.jacobking.simpleticket.gui.view.combobox.EmployeeComboBox;
-import io.jacobking.simpleticket.gui.view.combobox.PriorityComboBox;
-import io.jacobking.simpleticket.gui.view.combobox.StatusComboBox;
 import io.jacobking.simpleticket.object.PriorityType;
 import io.jacobking.simpleticket.object.StatusType;
 import io.jacobking.simpleticket.tables.pojos.Employee;
-import io.jacobking.simpleticket.tables.pojos.TicketComments;
-import io.jacobking.simpleticket.utility.DateUtil;
-import io.jacobking.simpleticket.utility.MiscUtil;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.*;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -33,14 +22,9 @@ import javafx.scene.text.Text;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import org.controlsfx.control.SearchableComboBox;
-import org.jooq.impl.DSL;
 
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
-
-import static io.jacobking.simpleticket.tables.TicketComments.TICKET_COMMENTS;
 
 public class TicketViewerController extends Controller {
 

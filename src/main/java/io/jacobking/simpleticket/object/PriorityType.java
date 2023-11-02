@@ -4,8 +4,6 @@ package io.jacobking.simpleticket.object;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.Arrays;
-
 public enum PriorityType {
 
     LOW("Low"),
