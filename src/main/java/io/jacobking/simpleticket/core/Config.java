@@ -61,7 +61,7 @@ public class Config {
         }
     }
 
-    private static final class Commons {
+    public static final class Commons {
         public static final String USER_HOME = System.getProperty("user.home");
         public static final String PATH_SEPARATOR = System.getProperty("file.separator");
         public static final String DIRECTORY = String.format("%s%s%s", USER_HOME, PATH_SEPARATOR, "SimpleTicket");

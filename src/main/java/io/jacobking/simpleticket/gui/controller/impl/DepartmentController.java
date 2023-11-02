@@ -68,6 +68,11 @@ public class DepartmentController extends Controller {
             return;
         }
 
+        if (Proctor.getInstance().settings().isDontShowConfirmation()) {
+            departmentProctor.delete(model.getId());
+            return;
+        }
+
         Alerts.showDefaultConfirmation().ifPresent(type -> {
             if (type == ButtonType.YES) {
                 departmentProctor.delete(model.getId());

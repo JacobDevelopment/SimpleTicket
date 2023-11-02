@@ -2,6 +2,7 @@ package io.jacobking.simpleticket.database.service;
 
 import io.jacobking.simpleticket.database.connector.JOOQConnector;
 import io.jacobking.simpleticket.database.service.impl.*;
+import io.jacobking.simpleticket.tables.pojos.Settings;
 import org.jooq.Condition;
 import org.jooq.DSLContext;
 import org.jooq.Record;
@@ -42,6 +43,14 @@ public class ServiceDispatcher {
         final Service<T> service = getService(type);
         if (service != null) {
             return service.fetch(context, id);
+        }
+        return null;
+    }
+
+    public Settings retrieve() {
+        final Service<?> service = getService(ServiceType.SETTINGS);
+        if (service instanceof SettingsService) {
+            return ((SettingsService) service).retrieve(context);
         }
         return null;
     }
@@ -109,6 +118,7 @@ public class ServiceDispatcher {
             case EMPLOYEE -> (Service<T>) new EmployeeService();
             case COMPANY -> (Service<T>) new CompanyService();
             case TICKET_COMMENTS -> (Service<T>) new CommentService();
+            case SETTINGS -> (Service<T>) new SettingsService();
         };
     }
 

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass="body" stylesheets="@styles/dashboard.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane layoutX="7.0" layoutY="7.0" prefHeight="787.0" prefWidth="200.0" styleClass="sidebar">
@@ -22,7 +24,7 @@
                   <Button fx:id="companyButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onCompany" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Company" />
                   <Button fx:id="departmentButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onDepartment" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Department" />
                   <Button fx:id="employeeButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onEmployee" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Employee" />
-                  <Button contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#onSettings" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Settings" />
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#onSettings" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Settings" />
                </children>
             </VBox>
             <Button contentDisplay="TOP" layoutX="7.0" layoutY="734.0" mnemonicParsing="false" onAction="#onExit" prefHeight="39.0" prefWidth="186.0" styleClass="sidebar-button" text="Exit" />
@@ -34,6 +36,7 @@
          <fx:include id="company" fx:id="company" source="company.fxml" />
          <fx:include id="department" fx:id="department" source="department.fxml" />
          <fx:include id="employee" fx:id="employee" source="employee.fxml" />
+         <fx:include id="settings" fx:id="settings" source="settings.fxml"/>
       </AnchorPane>
    </children>
 </AnchorPane>

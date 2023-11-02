@@ -6,6 +6,7 @@ import io.jacobking.simpleticket.database.connector.SQLiteConnector;
 import io.jacobking.simpleticket.database.service.ServiceDispatcher;
 import io.jacobking.simpleticket.database.service.ServiceType;
 import io.jacobking.simpleticket.gui.alert.Alerts;
+import io.jacobking.simpleticket.tables.pojos.Settings;
 import org.jooq.Condition;
 import org.jooq.Record;
 import org.jooq.TableField;
@@ -84,6 +85,9 @@ public class Database {
         return getInstance().getDispatcher().fetchAll(type);
     }
 
+    public static Settings retrieve() {
+        return getInstance().getDispatcher().retrieve();
+    }
 
     private ServiceDispatcher getDispatcher() {
         return dispatcher;

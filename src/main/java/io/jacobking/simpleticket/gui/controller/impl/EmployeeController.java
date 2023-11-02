@@ -76,6 +76,11 @@ public class EmployeeController extends Controller {
             return;
         }
 
+        if (Proctor.getInstance().settings().isDontShowConfirmation()) {
+            employeeProctor.delete(model.getId());
+            return;
+        }
+
         Alerts.showDefaultConfirmation().ifPresent(type -> {
             if (type == ButtonType.YES) {
                 employeeProctor.delete(model.getId());
