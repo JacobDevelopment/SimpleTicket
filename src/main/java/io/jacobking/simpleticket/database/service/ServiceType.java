@@ -9,7 +9,8 @@ public enum ServiceType {
     EMPLOYEE(new EmployeeService()),
     COMPANY(new CompanyService()),
     TICKET(new TicketService()),
-    TICKET_COMMENTS(new CommentService());
+    TICKET_COMMENTS(new CommentService()),
+    SETTINGS(new SettingsService());
 
     private final Service<?> service;
 
