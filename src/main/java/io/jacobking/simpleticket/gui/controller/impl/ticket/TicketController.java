@@ -2,6 +2,7 @@ package io.jacobking.simpleticket.gui.controller.impl.ticket;
 
 import io.jacobking.simpleticket.database.Database;
 import io.jacobking.simpleticket.database.service.ServiceType;
+import io.jacobking.simpleticket.gui.alert.Alerts;
 import io.jacobking.simpleticket.gui.controller.Controller;
 import io.jacobking.simpleticket.gui.controller.proctor.Proctor;
 import io.jacobking.simpleticket.gui.controller.proctor.impl.TicketProctor;
@@ -13,10 +14,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ListChangeListener;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -59,17 +57,26 @@ public class TicketController extends Controller {
     @FXML
     private void onOpenTicket() {
         final TicketModel model = ticketTable.getSelectionModel().getSelectedItem();
-        if (model != null) {
-            getNavigation().display(Route.TICKET_VIEWER, true, model);
+        if (model == null) {
+            Alerts.notSelected();
+            return;
         }
+        getNavigation().display(Route.TICKET_VIEWER, true, model);
     }
 
     @FXML
     private void onDeleteTicket() {
         final TicketModel model = ticketTable.getSelectionModel().getSelectedItem();
-        if (model != null) {
-            ticketProctor.delete(model.getId());
+        if (model == null) {
+            Alerts.notSelected();
+            return;
         }
+
+        Alerts.showDefaultConfirmation().ifPresent(type -> {
+            if (type == ButtonType.YES) {
+                ticketProctor.delete(model.getId());
+            }
+        });
     }
 
     @FXML
