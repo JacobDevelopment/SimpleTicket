@@ -50,6 +50,7 @@ public class SettingsService implements Service<Settings> {
 
     public Settings retrieve(DSLContext context) {
         return context.selectFrom(SETTINGS)
+                .where(SETTINGS.ID.eq(1))
                 .fetchOneInto(Settings.class);
     }
 

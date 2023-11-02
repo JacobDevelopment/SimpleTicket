@@ -4,6 +4,7 @@ import io.jacobking.simpleticket.gui.controller.proctor.impl.CompanyProctor;
 import io.jacobking.simpleticket.gui.controller.proctor.impl.DepartmentProctor;
 import io.jacobking.simpleticket.gui.controller.proctor.impl.EmployeeProctor;
 import io.jacobking.simpleticket.gui.controller.proctor.impl.TicketProctor;
+import io.jacobking.simpleticket.gui.controller.proctor.non_impl.SettingsProctor;
 
 public class Proctor {
 
@@ -13,12 +14,14 @@ public class Proctor {
     private final EmployeeProctor employeeProctor;
     private final DepartmentProctor departmentProctor;
     private final CompanyProctor companyProctor;
+    private final SettingsProctor settingsProctor;
 
     private Proctor() {
         this.ticketProctor = new TicketProctor();
         this.employeeProctor = new EmployeeProctor();
         this.departmentProctor = new DepartmentProctor();
         this.companyProctor = new CompanyProctor();
+        this.settingsProctor = new SettingsProctor();
     }
 
     public static Proctor getInstance() {
@@ -41,5 +44,9 @@ public class Proctor {
 
     public CompanyProctor company() {
         return companyProctor;
+    }
+
+    public SettingsProctor settings() {
+        return settingsProctor;
     }
 }

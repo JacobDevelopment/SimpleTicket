@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import org.controlsfx.control.ToggleSwitch?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="970.0" styleClass="body" stylesheets="@styles/settings.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.jacobking.simpleticket.gui.controller.impl.SettingsController">
+   <children>
+      <Pane layoutX="24.0" layoutY="14.0" prefHeight="61.0" prefWidth="923.0" styleClass="pane">
+         <children>
+            <HBox alignment="CENTER_LEFT" layoutX="14.0" prefHeight="61.0" prefWidth="346.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onSaveChanges" text="Save Changes" />
+                  <Button mnemonicParsing="false" onAction="#onUndoChanges" text="Undo Changes" />
+                  <Button mnemonicParsing="false" onAction="#onUseFactoryDefaults" text="Use Factory Defaults" />
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <HBox layoutX="24.0" layoutY="103.0" prefHeight="147.0" prefWidth="923.0" spacing="10.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+               <children>
+                  <Label layoutX="42.0" layoutY="4.0" styleClass="labels" text="Archive Settings" />
+                  <ToggleSwitch fx:id="archiveSwitch" layoutX="134.0" layoutY="29.0" />
+                  <Label layoutX="14.0" layoutY="30.0" styleClass="sub-labels" text="Ticket Archives" />
+                  <Label layoutX="14.0" layoutY="54.0" prefHeight="17.0" prefWidth="85.0" styleClass="sub-labels" text="Auto Archive" />
+                  <ToggleSwitch fx:id="autoArchiveSwitch" disable="true" layoutX="134.0" layoutY="54.0" />
+                  <TextField fx:id="archiveDateField" disable="true" layoutX="15.0" layoutY="78.0" prefHeight="25.0" prefWidth="169.0" promptText="Archive Date (beyond)" />
+                  <TextField fx:id="archiveDirectoryField" disable="true" layoutX="15.0" layoutY="108.0" prefHeight="25.0" prefWidth="143.0" promptText="Archive Directory" />
+                  <Button fx:id="directoryButton" disable="true" layoutX="160.0" layoutY="108.0" mnemonicParsing="false" onAction="#onArchiveDirectory" prefHeight="25.0" prefWidth="32.0" text="..." />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+               <children>
+                  <Label layoutX="42.0" layoutY="4.0" styleClass="labels" text="Deletion Settings" />
+                  <ToggleSwitch fx:id="autoDeleteSwitch" layoutX="134.0" layoutY="29.0" />
+                  <Label layoutX="14.0" layoutY="30.0" styleClass="sub-labels" text="Auto Delete Tickets" />
+                  <TextField fx:id="deletionDateField" layoutX="16.0" layoutY="54.0" prefHeight="25.0" prefWidth="169.0" promptText="Deletion Date (beyond)" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+               <children>
+                  <Label layoutX="20.0" layoutY="4.0" styleClass="labels" text="Miscellaneous Settings" />
+                  <ToggleSwitch fx:id="confirmationSwitch" layoutX="141.0" layoutY="35.0" />
+                  <Label layoutX="14.0" layoutY="24.0" prefHeight="41.0" prefWidth="121.0" styleClass="sub-labels" text="Disable Confirmation Dialogs" wrapText="true" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

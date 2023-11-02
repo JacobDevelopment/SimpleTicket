@@ -1,0 +1,23 @@
+@import url("core.css");
+@import url("button.css");
+
+.body {
+    -fx-background-color: -fx-offset;
+}
+
+.pane {
+    -fx-background-color: white;
+    -fx-background-radius: 18px;
+}
+
+.labels {
+    -fx-text-fill: -fx-primary;
+    -fx-font-weight: bolder;
+    -fx-font-size: 1.25em;
+}
+
+.sub-labels {
+    -fx-text-fill: derive(-fx-primary, 25%);
+    -fx-font-weight: bolder;
+    -fx-font-size: 1em;
+}
