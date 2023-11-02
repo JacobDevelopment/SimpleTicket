@@ -3,7 +3,7 @@ package io.jacobking.simpleticket.core;
 public class Version {
     private static final String FX_VERSION = "20.0.2";
 
-    private static final Version current = new Version(1, 0, 0, "beta");
+    private static final Version current = new Version(1, 1, 1, "beta");
 
     private static final Version instance = new Version();
 

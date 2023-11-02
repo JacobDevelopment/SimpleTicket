@@ -13,6 +13,9 @@ import io.jacobking.simpleticket.gui.navigation.Route;
 import io.jacobking.simpleticket.object.PriorityType;
 import io.jacobking.simpleticket.object.StatusType;
 import io.jacobking.simpleticket.tables.pojos.Employee;
+import io.jacobking.simpleticket.tables.pojos.TicketComments;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -22,9 +25,13 @@ import javafx.scene.text.Text;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import org.controlsfx.control.SearchableComboBox;
+import org.jooq.impl.DSL;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import static io.jacobking.simpleticket.tables.TicketComments.TICKET_COMMENTS;
 
 public class TicketViewerController extends Controller {
 
@@ -80,8 +87,14 @@ public class TicketViewerController extends Controller {
 
     @FXML
     private void onPostComment() {
-        final CommentModel model = new CommentModel(commentField.getText());
-        commentList.getItems().add(model);
+        final CommentModel commentModel = new CommentModel(commentField.getText());
+        commentList.getItems().add(commentModel);
+
+        Database.insert(ServiceType.TICKET_COMMENTS, new TicketComments()
+                .setTicketId(model.getId())
+                .setComment(commentModel.getComment())
+                .setDate(commentModel.getDate())
+        );
     }
 
     @FXML
@@ -235,6 +248,16 @@ public class TicketViewerController extends Controller {
                 };
             }
         });
+        final List<TicketComments> fetchedComments = Database.fetchAll(ServiceType.TICKET_COMMENTS,
+                DSL.condition(TICKET_COMMENTS.TICKET_ID.eq(model.getId())));
+
+        if (fetchedComments.isEmpty())
+            return;
+
+        final ObservableList<CommentModel> comments = FXCollections.observableArrayList();
+        fetchedComments.forEach(fetched -> comments.add(new CommentModel(fetched)));
+
+        commentList.setItems(comments);
     }
 
 }

@@ -47,16 +47,10 @@ As of right now, there are two core features of SimpleTicket. This includes crea
 To see the license, click <a href="https://github.com/JacobDevelopment/SimpleTicket/blob/development/LICENSE">here</a>.
 
 ## Changelog
-- None currently.
+### 1.1.0-beta
+* Dialog/Alert System introduced.
+* UI Changes & Improvements.
+* Implemented ControlsFX for more convenient controls.
+* Database Schema changes.
 
-## Roadmap
-### 1.0.0 (Production w/ Potential Implementations)
-- [X] Dialog/Alert System
-- [ ] Implement logging system.
-- [X] UI Improvements/Changes/Different theming.
-  - [X] Implement ControlsFX for better tools.
-  - [X] Use SearchableComboBox.
-- [ ] Work on settings page. 
-  - [ ] Allow users to target custom working path & custom database.
-  - [X] Implement configuration/settings table in database. 
-  - [ ] Add base settings panes, but be disabled for now (including auto-archive & auto-delete).
+## Roadmap (1.0.0-Production)
