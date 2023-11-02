@@ -38,7 +38,7 @@ public class SettingsController extends Controller {
 
     public SettingsController() {
         super(Navigation.getInstance());
-        this.model = Proctor.getInstance().settings().fetch();
+        this.model = Proctor.getInstance().settings();
     }
 
     @Override

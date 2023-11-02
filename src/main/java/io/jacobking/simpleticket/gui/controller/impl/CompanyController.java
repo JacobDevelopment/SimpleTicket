@@ -58,6 +58,11 @@ public class CompanyController extends Controller {
             return;
         }
 
+        if (Proctor.getInstance().settings().isDontShowConfirmation()) {
+            companyProctor.delete(model.getId());
+            return;
+        }
+
         Alerts.showDefaultConfirmation().ifPresent(type -> {
             if (type == ButtonType.YES) {
                 companyProctor.delete(model.getId());
