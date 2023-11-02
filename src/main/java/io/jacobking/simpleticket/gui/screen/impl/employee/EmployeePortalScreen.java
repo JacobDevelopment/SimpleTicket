@@ -1,6 +1,5 @@
 package io.jacobking.simpleticket.gui.screen.impl.employee;
 
-import io.jacobking.simpleticket.gui.controller.Controller;
 import io.jacobking.simpleticket.gui.controller.impl.portal.EmployeePortalController;
 import io.jacobking.simpleticket.gui.model.EmployeeModel;
 import io.jacobking.simpleticket.gui.navigation.Route;

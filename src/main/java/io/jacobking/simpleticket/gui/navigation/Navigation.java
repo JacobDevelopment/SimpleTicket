@@ -1,9 +1,7 @@
 package io.jacobking.simpleticket.gui.navigation;
 
 
-
-
-import io.jacobking.simpleticket.gui.controller.Controller;
+import io.jacobking.simpleticket.gui.alert.Alerts;
 import io.jacobking.simpleticket.gui.screen.Screen;
 
 import java.util.HashMap;
@@ -38,6 +36,7 @@ public class Navigation {
     public void display(final Route route, final boolean isModal, final Object... objects) {
         final Screen screen = getScreen(route);
         if (screen == null) {
+            Alerts.showError("Could not find screen.", "Possible null route: " + route);
             return;
         }
 

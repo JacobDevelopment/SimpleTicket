@@ -13,7 +13,6 @@ import io.jacobking.simpleticket.gui.model.EmployeeModel;
 import io.jacobking.simpleticket.gui.navigation.Navigation;
 import io.jacobking.simpleticket.gui.navigation.Route;
 import io.jacobking.simpleticket.tables.pojos.Department;
-import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;

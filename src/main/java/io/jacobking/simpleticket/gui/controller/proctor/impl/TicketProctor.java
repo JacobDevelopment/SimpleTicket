@@ -5,13 +5,9 @@ import io.jacobking.simpleticket.database.service.ServiceType;
 import io.jacobking.simpleticket.gui.controller.proctor.ProctorImpl;
 import io.jacobking.simpleticket.gui.model.TicketModel;
 import io.jacobking.simpleticket.tables.pojos.Ticket;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.transformation.FilteredList;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class TicketProctor extends ProctorImpl<Ticket, TicketModel> {
 

@@ -5,6 +5,7 @@ import io.jacobking.simpleticket.database.connector.JOOQConnector;
 import io.jacobking.simpleticket.database.connector.SQLiteConnector;
 import io.jacobking.simpleticket.database.service.ServiceDispatcher;
 import io.jacobking.simpleticket.database.service.ServiceType;
+import io.jacobking.simpleticket.gui.alert.Alerts;
 import org.jooq.Condition;
 import org.jooq.Record;
 import org.jooq.TableField;
@@ -38,7 +39,7 @@ public class Database {
             try {
                 connector.getConnection().close();
             } catch (SQLException e) {
-                e.printStackTrace();
+                Alerts.showException(e.getCause(), "An SQLException occurred.", "Please report an issue on the GH repo.");
             }
         }
     }

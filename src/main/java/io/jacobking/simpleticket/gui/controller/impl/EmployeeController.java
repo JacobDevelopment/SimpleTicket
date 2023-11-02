@@ -2,12 +2,12 @@ package io.jacobking.simpleticket.gui.controller.impl;
 
 import io.jacobking.simpleticket.database.Database;
 import io.jacobking.simpleticket.database.service.ServiceType;
+import io.jacobking.simpleticket.gui.alert.Alerts;
 import io.jacobking.simpleticket.gui.controller.Controller;
 import io.jacobking.simpleticket.gui.controller.proctor.Proctor;
 import io.jacobking.simpleticket.gui.controller.proctor.impl.CompanyProctor;
 import io.jacobking.simpleticket.gui.controller.proctor.impl.EmployeeProctor;
 import io.jacobking.simpleticket.gui.model.CompanyModel;
-import io.jacobking.simpleticket.gui.model.DepartmentModel;
 import io.jacobking.simpleticket.gui.model.EmployeeModel;
 import io.jacobking.simpleticket.gui.navigation.Navigation;
 import io.jacobking.simpleticket.gui.navigation.Route;
@@ -17,10 +17,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ListChangeListener;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.util.StringConverter;
 import org.controlsfx.control.CheckComboBox;
 
@@ -74,18 +71,26 @@ public class EmployeeController extends Controller {
     @FXML
     private void onDeleteEmployee() {
         final EmployeeModel model = employeeTable.getSelectionModel().getSelectedItem();
-        if (model != null) {
-            employeeProctor.delete(model.getId());
+        if (model == null) {
+            Alerts.notSelected();
+            return;
         }
+
+        Alerts.showDefaultConfirmation().ifPresent(type -> {
+            if (type == ButtonType.YES) {
+                employeeProctor.delete(model.getId());
+            }
+        });
     }
 
     @FXML
     private void onEditEmployee() {
         final EmployeeModel model = employeeTable.getSelectionModel().getSelectedItem();
-        if (model != null) {
-            getNavigation().display(Route.EMPLOYEE_PORTAL, true, model, employeeTable);
+        if (model == null) {
+            Alerts.notSelected();
+            return;
         }
-        employeeTable.refresh();
+        getNavigation().display(Route.EMPLOYEE_PORTAL, true, model, employeeTable);
     }
 
     @FXML
