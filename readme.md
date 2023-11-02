@@ -58,4 +58,5 @@ To see the license, click <a href="https://github.com/JacobDevelopment/SimpleTic
   - [X] Use SearchableComboBox.
 - [ ] Work on settings page. 
   - [ ] Allow users to target custom working path & custom database.
-  - [ ] Implement configuration/settings table in database. 
+  - [X] Implement configuration/settings table in database. 
+  - [ ] Add base settings panes, but be disabled for now (including auto-archive & auto-delete).
