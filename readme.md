@@ -50,27 +50,15 @@ As of right now, there are two core features of SimpleTicket. This includes crea
 To see the license, click <a href="https://github.com/JacobDevelopment/SimpleTicket/blob/development/LICENSE">here</a>.
 
 ## Changelog
-
-
-### 1.0.0-beta
-- [ ] None yet.
-
-
+- None currently.
 
 ## Roadmap
 ### 1.0.0 (Production w/ Potential Implementations)
-- [ ] Dialog/Alert System
-  - [ ] Create a confirmation dialog that requests user confirmation when deleting table entries (e.g. departments, tickets, employees, etc.)
-  - [ ] Create an error alert when something goes wrong (or if you cannot do a certain action.)
-- [ ] Implement a logging system for more future debugging (SQL queries included, possibly? Nothing is "sensitive" information yet.)
-- [ ] ~~Separate the management UI into a TabPane potentially.~~
-  - [X] Other minor UI tweaks and clean-ups. I'm not creatively inclined.
-- [ ] Add checks to see if the database file & system.properties file already existed on new installation.
-    - [ ] We should also look into how we will roll-out new updates?
-- [X] Implement ControlsFX for better UI options?
-  - [ ] ~~Potentially use GridView to display tickets (rather than the table?)~~
-  - [ ] ~~Can implement notifications potentially?~~
-  - [X] Can implement SearchableComboBox? Rather than the way we currently do it?
-  - [ ] Can implement TaskProgressView (to show ticket status/priorities?)
-  - [ ] Can implement better text fields along with decoration & validation.
-  - [ ] ~~Can possibly implement toggle switch (for editing modes?)~~
+- [X] Dialog/Alert System
+- [ ] Implement logging system.
+- [X] UI Improvements/Changes/Different theming.
+  - [X] Implement ControlsFX for better tools.
+  - [X] Use SearchableComboBox.
+- [ ] Work on settings page. 
+  - [ ] Allow users to target custom working path & custom database.
+  - [ ] Implement configuration/settings table in database. 
