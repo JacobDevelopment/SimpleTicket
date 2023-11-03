@@ -59,6 +59,8 @@ To see the license, click <a href="https://github.com/JacobDevelopment/SimpleTic
 ## Known Bugs
 * Updating the department supervisor doesn't update in the table UI.
 * SQL query error upon application launch.
+* Disabled Confirmation doesn't apply to ticket deletion. (Should we keep or add another toggle switch?)
+
 
 ## Todo(?)
 - [ ] Implement auto-archive/auto-delete tickets.
