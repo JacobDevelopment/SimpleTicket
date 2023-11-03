@@ -4,7 +4,7 @@
 
 -------------------------
 
-![Static Badge](https://img.shields.io/badge/Version-1.1.1--beta-blue) ![Static Badge](https://img.shields.io/badge/Developer-JacobDevelopment-green)
+![Static Badge](https://img.shields.io/badge/Version-0.1.2--beta-blue) ![Static Badge](https://img.shields.io/badge/Developer-JacobDevelopment-green)
 ![Static Badge](https://img.shields.io/badge/Pull%20Requests-Welcome-red) ![Static Badge](https://img.shields.io/badge/Language-Java-darkgreen) ![Static Badge](https://img.shields.io/badge/JDK-17-blue) ![Static Badge](https://img.shields.io/badge/JavaFX%20SDK-20.0.2-blue) ![Static Badge](https://img.shields.io/badge/jOOQ-3.18.6-darkred) ![Static Badge](https://img.shields.io/badge/Database%20(SQLite--JDBC)-3.42.0.0-red) ![Static Badge](https://img.shields.io/badge/Gradle-8.4-yellow)
 
 
@@ -47,10 +47,15 @@ As of right now, there are two core features of SimpleTicket. This includes crea
 To see the license, click <a href="https://github.com/JacobDevelopment/SimpleTicket/blob/development/LICENSE">here</a>.
 
 ## Changelog
-### 1.1.1-beta
+### 0.1.2-beta
+* Reduce version semantics, not sure why we stated with "1.0.0".
+* Adding database upgrade checks depending on the "configuration" database table.
+  * This will make previous versions incompatible, likely. But we will see.
+
+### 0.1.1-beta
 * Fixed ticket comment system, tickets were posting but not actually being stored in DB.
 
-### 1.1.0-beta
+### 0.1.0-beta
 * Dialog/Alert System introduced.
 * UI Changes & Improvements.
 * Implemented ControlsFX for more convenient controls.

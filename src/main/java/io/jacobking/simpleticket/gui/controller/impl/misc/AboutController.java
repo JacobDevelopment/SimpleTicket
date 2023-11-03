@@ -31,7 +31,7 @@ public class AboutController extends Controller {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         githubRepo.setOnAction(event -> openWebpage(GITHUB_URL));
-        appVersionLabel.setText(Version.getCurrent());
+        appVersionLabel.setText(Version.getCurrentAsString());
         jdkVersionLabel.setText(Version.getJDKVersion());
         fxVersionLabel.setText(Version.getFXVersion());
     }

@@ -1,5 +1,6 @@
 package io.jacobking.simpleticket.database.connector;
 
+import io.jacobking.simpleticket.core.Version;
 import io.jacobking.simpleticket.database.core.DatabaseInitializer;
 
 import java.sql.Connection;
@@ -47,8 +48,7 @@ public class SQLiteConnector {
     }
 
     private void createInitializer() {
-        new DatabaseInitializer(connection)
-                .executeQueries();
+        new DatabaseInitializer(connection);
     }
 
 
