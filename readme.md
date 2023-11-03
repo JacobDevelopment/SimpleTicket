@@ -4,7 +4,7 @@
 
 -------------------------
 
-![Static Badge](https://img.shields.io/badge/Version-1.0.0--beta-blue) ![Static Badge](https://img.shields.io/badge/Developer-JacobDevelopment-green)
+![Static Badge](https://img.shields.io/badge/Version-1.1.1--beta-blue) ![Static Badge](https://img.shields.io/badge/Developer-JacobDevelopment-green)
 ![Static Badge](https://img.shields.io/badge/Pull%20Requests-Welcome-red) ![Static Badge](https://img.shields.io/badge/Language-Java-darkgreen) ![Static Badge](https://img.shields.io/badge/JDK-17-blue) ![Static Badge](https://img.shields.io/badge/JavaFX%20SDK-20.0.2-blue) ![Static Badge](https://img.shields.io/badge/jOOQ-3.18.6-darkred) ![Static Badge](https://img.shields.io/badge/Database%20(SQLite--JDBC)-3.42.0.0-red) ![Static Badge](https://img.shields.io/badge/Gradle-8.4-yellow)
 
 
