@@ -95,6 +95,8 @@ public class TicketViewerController extends Controller {
                 .setComment(commentModel.getComment())
                 .setDate(commentModel.getDate())
         );
+
+        commentField.clear();
     }
 
     @FXML
