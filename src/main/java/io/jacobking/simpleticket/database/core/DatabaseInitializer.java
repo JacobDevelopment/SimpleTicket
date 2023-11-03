@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.sql.*;
 
 public class DatabaseInitializer {
-    private static final String CURRENT_SQL = "sql/current.sql";
+    private static final String CURRENT_SQL = "sql/base.sql";
     private static final String UPGRADE_SQL = "sql/v0.1.2.sql";
 
     private final Version currentVersion = Version.getCurrent();
@@ -57,7 +57,7 @@ public class DatabaseInitializer {
     public void executeQueries(final String path) {
         final String[] queries = getSplitQueries(path);
         if (queries.length == 0) {
-            Alerts.showError("Empty Split Queries", "sql/current.sql has no queries!");
+            Alerts.showError("Empty Split Queries", "sql/base.sql has no queries!");
             return;
         }
 
