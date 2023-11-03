@@ -47,6 +47,9 @@ As of right now, there are two core features of SimpleTicket. This includes crea
 To see the license, click <a href="https://github.com/JacobDevelopment/SimpleTicket/blob/development/LICENSE">here</a>.
 
 ## Changelog
+### 1.1.1-beta
+* Fixed ticket comment system, tickets were posting but not actually being stored in DB.
+
 ### 1.1.0-beta
 * Dialog/Alert System introduced.
 * UI Changes & Improvements.
