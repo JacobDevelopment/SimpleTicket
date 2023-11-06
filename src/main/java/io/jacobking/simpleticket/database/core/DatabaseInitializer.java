@@ -11,8 +11,8 @@ import java.nio.charset.StandardCharsets;
 import java.sql.*;
 
 public class DatabaseInitializer {
-    private static final String CURRENT_SQL = "sql/base.sql";
-    private static final String UPGRADE_SQL = "sql/v0.1.2.sql";
+    private static final String CURRENT_SQL = "sql/base.sql"; // This will be the default.
+    private static final String UPGRADE_SQL = "sql/v0.1.2.sql"; // Must target the correct upgrade resource.
 
     private final Version currentVersion = Version.getCurrent();
 
@@ -63,7 +63,6 @@ public class DatabaseInitializer {
 
         for (final String query : queries) {
             final String sql = query.concat(";");
-            System.out.println(sql);
             executeQuery(sql);
         }
     }
