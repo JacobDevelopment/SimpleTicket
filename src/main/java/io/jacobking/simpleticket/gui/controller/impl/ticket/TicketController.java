@@ -61,6 +61,7 @@ public class TicketController extends Controller {
             Alerts.notSelected();
             return;
         }
+
         getNavigation().display(Route.TICKET_VIEWER, true, model);
     }
 
@@ -69,6 +70,11 @@ public class TicketController extends Controller {
         final TicketModel model = ticketTable.getSelectionModel().getSelectedItem();
         if (model == null) {
             Alerts.notSelected();
+            return;
+        }
+
+        if (Proctor.getInstance().settings().isDontShowTicketConfirmation()) {
+            ticketProctor.delete(model.getId());
             return;
         }
 
