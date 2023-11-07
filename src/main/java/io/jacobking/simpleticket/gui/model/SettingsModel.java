@@ -15,11 +15,12 @@ public class SettingsModel {
     private final StringProperty autoArchiveDate;
     private final StringProperty archiveDirectory;
     private final BooleanProperty dontShowConfirmation;
+    private final BooleanProperty dontShowTicketConfirmation;
 
     public SettingsModel(boolean archiveTickets, boolean autoArchiveTickets,
                          boolean autoDeleteTickets, String autoDeleteDate,
                          String autoArchiveDate, String archiveDirectory,
-                         boolean dontShowConfirmation) {
+                         boolean dontShowConfirmation, boolean dontShowTicketConfirmation) {
         this.archiveTickets = new SimpleBooleanProperty(archiveTickets);
         this.autoArchiveTickets = new SimpleBooleanProperty(autoArchiveTickets);
         this.autoDeleteTickets = new SimpleBooleanProperty(autoDeleteTickets);
@@ -27,6 +28,7 @@ public class SettingsModel {
         this.autoArchiveDate = new SimpleStringProperty(autoArchiveDate);
         this.archiveDirectory = new SimpleStringProperty(archiveDirectory);
         this.dontShowConfirmation = new SimpleBooleanProperty(dontShowConfirmation);
+        this.dontShowTicketConfirmation = new SimpleBooleanProperty(dontShowTicketConfirmation);
     }
 
     public SettingsModel(Settings settings) {
@@ -37,7 +39,8 @@ public class SettingsModel {
                 settings.getAutoDeleteDate(),
                 settings.getAutoArchiveDate(),
                 settings.getArchiveDirectory(),
-                settings.getDontShowConfirmation()
+                settings.getDontShowConfirmation(),
+                settings.getDontShowConfirmationTickets()
         );
     }
 
@@ -125,6 +128,18 @@ public class SettingsModel {
         this.dontShowConfirmation.set(dontShowConfirmation);
     }
 
+    public boolean isDontShowTicketConfirmation() {
+        return dontShowTicketConfirmation.get();
+    }
+
+    public BooleanProperty dontShowTicketConfirmationProperty() {
+        return dontShowTicketConfirmation;
+    }
+
+    public void setDontShowTicketConfirmation(boolean dontShowTicketConfirmation) {
+        this.dontShowTicketConfirmation.set(dontShowTicketConfirmation);
+    }
+
     public Settings getAsPojo() {
         return new Settings(1,
                 isArchiveTickets(),
@@ -133,8 +148,10 @@ public class SettingsModel {
                 getAutoDeleteDate(),
                 getAutoArchiveDate(),
                 getArchiveDirectory(),
-                isDontShowConfirmation());
+                isDontShowConfirmation(),
+                isDontShowTicketConfirmation());
     }
+
 
     @Override
     public String toString() {

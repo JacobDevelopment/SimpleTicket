@@ -6,9 +6,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import org.controlsfx.control.ToggleSwitch?>
 
-<AnchorPane disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="970.0" styleClass="body" stylesheets="@styles/settings.css" visible="false" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.jacobking.simpleticket.gui.controller.impl.SettingsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="970.0" styleClass="body" stylesheets="@styles/settings.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.jacobking.simpleticket.gui.controller.impl.SettingsController">
    <children>
       <Pane layoutX="24.0" layoutY="14.0" prefHeight="61.0" prefWidth="923.0" styleClass="pane">
          <children>
@@ -16,7 +17,6 @@
                <children>
                   <Button mnemonicParsing="false" onAction="#onSaveChanges" text="Save Changes" />
                   <Button mnemonicParsing="false" onAction="#onUndoChanges" text="Undo Changes" />
-                  <Button mnemonicParsing="false" onAction="#onUseFactoryDefaults" text="Use Factory Defaults" />
                </children>
             </HBox>
          </children>
@@ -48,9 +48,45 @@
                   <Label layoutX="20.0" layoutY="4.0" styleClass="labels" text="Miscellaneous Settings" />
                   <ToggleSwitch fx:id="confirmationSwitch" layoutX="141.0" layoutY="35.0" />
                   <Label layoutX="14.0" layoutY="24.0" prefHeight="41.0" prefWidth="121.0" styleClass="sub-labels" text="Disable Confirmation Dialogs" wrapText="true" />
+                  <ToggleSwitch fx:id="ticketDialogSwitch" layoutX="141.0" layoutY="77.0" />
+                  <Label layoutX="14.0" layoutY="66.0" prefHeight="41.0" prefWidth="121.0" styleClass="sub-labels" text="Disable Ticket Confirmation Dialogs" wrapText="true" />
                </children>
             </Pane>
          </children>
       </HBox>
+      <Pane layoutX="24.0" layoutY="261.0" prefHeight="200.0" prefWidth="276.0" styleClass="pane">
+         <children>
+            <VBox alignment="CENTER" layoutX="33.0" layoutY="43.0" prefHeight="114.0" prefWidth="210.0">
+               <children>
+                  <Pane prefHeight="23.0" prefWidth="333.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="3.0" styleClass="sub-labels" text="SimpleTicket Version:" textAlignment="RIGHT" />
+                        <Label fx:id="appVersion" layoutX="129.0" layoutY="3.0" prefHeight="17.0" prefWidth="200.0" text="undefined" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="23.0" prefWidth="333.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="3.0" prefHeight="17.0" prefWidth="122.0" styleClass="sub-labels" text="JDK Version:" textAlignment="RIGHT" />
+                        <Label fx:id="jdkVersion" layoutX="129.0" layoutY="3.0" prefHeight="17.0" prefWidth="200.0" text="undefined" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="23.0" prefWidth="333.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="3.0" prefHeight="17.0" prefWidth="121.0" styleClass="sub-labels" text="JavaFX Version:" textAlignment="RIGHT" />
+                        <Label fx:id="fxVersion" layoutX="129.0" layoutY="3.0" prefHeight="17.0" prefWidth="200.0" text="undefined" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="23.0" prefWidth="333.0">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="3.0" prefHeight="17.0" prefWidth="122.0" styleClass="sub-labels" text="DB Schema Version:" textAlignment="RIGHT" />
+                        <Label fx:id="dbVersion" layoutX="129.0" layoutY="3.0" prefHeight="17.0" prefWidth="200.0" text="undefined" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+            <Label layoutX="115.0" layoutY="14.0" styleClass="labels" text="About" />
+            <Button layoutX="93.0" layoutY="157.0" mnemonicParsing="false" text="GitHub Repo" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

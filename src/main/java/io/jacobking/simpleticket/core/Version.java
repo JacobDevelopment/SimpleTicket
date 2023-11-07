@@ -6,6 +6,8 @@ public class Version implements Comparable<Version> {
 
     private static final Version current = new Version(0, 1, 2, "beta");
 
+    private static final Version database = new Version(0, 0, 0, null);
+
     private int major;
     private int minor;
     private int patch;
@@ -25,6 +27,14 @@ public class Version implements Comparable<Version> {
         this.suffix = null;
     }
 
+    public static void setDatabase(final Version version) {
+        database.setMajor(version.major);
+        database.setMinor(version.minor);
+        database.setPatch(version.patch);
+        database.setSuffix(version.suffix);
+    }
+
+
     public String asString() {
         if (suffix == null || suffix.isEmpty())
             return String.format("%d.%d.%d", major, minor, patch);
@@ -43,9 +53,14 @@ public class Version implements Comparable<Version> {
         return System.getProperty("java.version");
     }
 
+    public static Version getDatabase() {
+        return database;
+    }
+
     public static String getFXVersion() {
         return FX_VERSION;
     }
+
 
     public void setMajor(int major) {
         this.major = major;

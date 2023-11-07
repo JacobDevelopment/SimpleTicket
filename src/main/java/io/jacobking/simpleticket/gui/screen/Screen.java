@@ -17,7 +17,7 @@ import java.net.URL;
 public abstract class Screen {
 
     private static final String ICON_PATH = "icons/icon.png";
-    private static final String TITLE = String.format("SimpleTicket - %s", Version.getCurrent());
+    private static final String TITLE = String.format("SimpleTicket - %s", Version.getCurrentAsString());
     private final Route route;
     private Controller controller;
 

@@ -37,6 +37,7 @@ public class DatabaseInitializer {
                     schemaVersion.setSuffix(resultSet.getString(5));
                 }
 
+                Version.setDatabase(schemaVersion);
                 compareVersions();
             } catch (SQLException e) {
                 Alerts.showException(e.fillInStackTrace(), "SQLException", "Could not execute prepared statement when grabbing versioning schemantics.");
