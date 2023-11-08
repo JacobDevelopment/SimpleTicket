@@ -49,7 +49,7 @@ public class CompanyPortalController extends Controller {
                 .setTitle(companyNameField.getText())
                 .setAbbreviation(companyAbbreviationField.getText())
                 .setDescription(companyDescriptionField.getText())
-                .setCreatedOn(DateUtil.now());
+                .setCreatedOn(DateUtil.nowLocalDateTime());
 
         companyProctor.create(company);
         getNavigation().close(Route.COMPANY_PORTAL);

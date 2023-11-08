@@ -33,7 +33,7 @@ public class CommentService implements Service<TicketComments> {
     @Override
     public boolean delete(DSLContext context, int id) {
         return context.deleteFrom(TICKET_COMMENTS)
-                .where(TICKET_COMMENTS.ID.eq(id))
+                .where(TICKET_COMMENTS.TICKET_ID.eq(id))
                 .execute() == SUCCESS_CODE;
     }
 

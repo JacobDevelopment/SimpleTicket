@@ -70,9 +70,8 @@ To see the license, click <a href="https://github.com/JacobDevelopment/SimpleTic
 ## Todo(?)
 - [ ] Implement auto-archive/auto-delete tickets.
 - [ ] Implement ticket exporting (.JSON, CSV?, Unknown)
-- [ ] Implement settings > reset to factory button.
+- [ ] ~~Implement settings > reset to factory button.~~
 - [ ] Implement home screen with statistics.
 - [ ] Fix main icon badge to match current color schemes.
 - [ ] Re-work "portal" screens to be less ugly. (Not creatively inclined.)
 - [ ] Work on screen resizing, SimpleTicket does not fill correctly height wise on smaller screens.
-- 

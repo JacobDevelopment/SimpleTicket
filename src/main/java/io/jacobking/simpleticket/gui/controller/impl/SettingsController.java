@@ -10,11 +10,12 @@ import io.jacobking.simpleticket.gui.controller.proctor.Proctor;
 import io.jacobking.simpleticket.gui.model.SettingsModel;
 import io.jacobking.simpleticket.gui.navigation.Navigation;
 import io.jacobking.simpleticket.tables.pojos.Settings;
+import io.jacobking.simpleticket.utility.DateUtil;
 import javafx.fxml.FXML;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Window;
 import org.controlsfx.control.ToggleSwitch;
@@ -40,11 +41,8 @@ public class SettingsController extends Controller {
 
     @FXML private ToggleSwitch archiveSwitch;
     @FXML private ToggleSwitch autoArchiveSwitch;
-    @FXML private TextField archiveDateField;
+    @FXML private DatePicker archiveDate;
     @FXML private TextField archiveDirectoryField;
-
-    @FXML private ToggleSwitch autoDeleteSwitch;
-    @FXML private TextField deletionDateField;
 
     @FXML private ToggleSwitch confirmationSwitch;
     @FXML private ToggleSwitch ticketDialogSwitch;
@@ -65,15 +63,15 @@ public class SettingsController extends Controller {
 
         archiveSwitch.setSelected(model.isArchiveTickets());
         autoArchiveSwitch.setSelected(model.isAutoArchiveTickets());
-        archiveDateField.setText(model.getAutoArchiveDate());
+
+        archiveDate.setValue(DateUtil.parseLocalDate(model.getAutoArchiveDate()));
 
         final Tooltip tooltip = new Tooltip();
         tooltip.setText(model.getArchiveDirectory());
         archiveDirectoryField.setText(model.getArchiveDirectory());
         archiveDirectoryField.setTooltip(tooltip);
 
-        autoDeleteSwitch.setSelected(model.isAutoDeleteTickets());
-        deletionDateField.setText(model.getAutoDeleteDate());
+
         confirmationSwitch.setSelected(model.isDontShowConfirmation());
         ticketDialogSwitch.setSelected(model.isDontShowTicketConfirmation());
 
@@ -85,9 +83,7 @@ public class SettingsController extends Controller {
         model.setArchiveTickets(archiveSwitch.isSelected());
         model.setAutoArchiveTickets(autoArchiveSwitch.isSelected());
         model.setArchiveDirectory(archiveDirectoryField.getText());
-        model.setAutoArchiveDate(archiveDateField.getText());
-        model.setAutoDeleteDate(deletionDateField.getText());
-        model.setAutoDeleteTickets(autoDeleteSwitch.isSelected());
+        model.setAutoArchiveDate(archiveDate.getValue().format(DateUtil.LOCAL_DATE_FORMAT));
         model.setDontShowConfirmation(confirmationSwitch.isSelected());
         model.setDontShowTicketConfirmation(ticketDialogSwitch.isSelected());
 
@@ -106,8 +102,6 @@ public class SettingsController extends Controller {
         model.setAutoArchiveTickets(model.isAutoArchiveTickets());
         model.setArchiveDirectory(model.getArchiveDirectory());
         model.setAutoArchiveDate(model.getAutoArchiveDate());
-        model.setAutoDeleteDate(model.getAutoDeleteDate());
-        model.setAutoDeleteTickets(model.isAutoDeleteTickets());
         model.setDontShowConfirmation(model.isDontShowConfirmation());
         model.setDontShowTicketConfirmation(model.isDontShowTicketConfirmation());
 
@@ -148,11 +142,10 @@ public class SettingsController extends Controller {
 
     private void setBindings() {
         autoArchiveSwitch.disableProperty().bind(archiveSwitch.selectedProperty().not());
-        archiveDateField.disableProperty().bind(archiveSwitch.selectedProperty().not());
+        archiveDate.disableProperty().bind(archiveSwitch.selectedProperty().not());
         archiveDirectoryField.disableProperty().bind(archiveSwitch.selectedProperty().not());
         directoryButton.disableProperty().bind(archiveSwitch.selectedProperty().not());
-        archiveDateField.disableProperty().bind(autoArchiveSwitch.selectedProperty().not());
-        deletionDateField.disableProperty().bind(autoDeleteSwitch.selectedProperty().not());
+        archiveDate.disableProperty().bind(autoArchiveSwitch.selectedProperty().not());
     }
 
 }

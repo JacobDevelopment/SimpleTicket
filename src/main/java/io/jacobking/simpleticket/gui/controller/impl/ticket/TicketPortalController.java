@@ -61,7 +61,7 @@ public class TicketPortalController extends Controller {
 
         final Ticket ticket = new Ticket()
                 .setSubject(subject)
-                .setCreatedOn(DateUtil.now())
+                .setCreatedOn(DateUtil.nowLocalDate())
                 .setPriority(priority)
                 .setStatus(status)
                 .setEmployeeId(employee);
@@ -83,7 +83,7 @@ public class TicketPortalController extends Controller {
 
         final Ticket ticket = new Ticket()
                 .setSubject(subject)
-                .setCreatedOn(DateUtil.now())
+                .setCreatedOn(DateUtil.nowLocalDate())
                 .setPriority(priority)
                 .setStatus(status)
                 .setEmployeeId(employeeId);
@@ -103,7 +103,7 @@ public class TicketPortalController extends Controller {
         if (comment.isEmpty()) return;
         Database.insert(ServiceType.TICKET_COMMENTS, new TicketComments()
                 .setComment(comment)
-                .setDate(DateUtil.now())
+                .setDate(DateUtil.nowLocalDateTime())
                 .setTicketId(ticketId)
         );
     }

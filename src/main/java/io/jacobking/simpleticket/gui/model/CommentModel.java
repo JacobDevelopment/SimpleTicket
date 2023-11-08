@@ -16,7 +16,7 @@ public class CommentModel {
     }
 
     public CommentModel(final String comment) {
-        this(DateUtil.now(), comment);
+        this(DateUtil.nowLocalDateTime(), comment);
     }
 
     public CommentModel(final TicketComments pojo) {

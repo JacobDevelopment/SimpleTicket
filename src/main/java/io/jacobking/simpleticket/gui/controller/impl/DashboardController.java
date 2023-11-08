@@ -1,8 +1,12 @@
 package io.jacobking.simpleticket.gui.controller.impl;
 
+import io.jacobking.simpleticket.archiver.Archiver;
 import io.jacobking.simpleticket.core.SimpleTicket;
 import io.jacobking.simpleticket.gui.controller.Controller;
+import io.jacobking.simpleticket.gui.controller.proctor.Proctor;
+import io.jacobking.simpleticket.gui.model.TicketModel;
 import io.jacobking.simpleticket.gui.navigation.Navigation;
+import io.jacobking.simpleticket.tables.pojos.Ticket;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.css.PseudoClass;
@@ -12,6 +16,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class DashboardController extends Controller {
 
@@ -38,6 +43,7 @@ public class DashboardController extends Controller {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        archiveTickets();
         activePane.addListener(((observable, oldValue, newValue) -> {
             if (oldValue != null) {
                 disablePane(oldValue);
@@ -118,5 +124,15 @@ public class DashboardController extends Controller {
     private void disablePane(final AnchorPane pane) {
         pane.setVisible(false);
         pane.setDisable(true);
+    }
+
+    private void archiveTickets() {
+        final Ticket[] tickets = Proctor.getInstance().ticket()
+                .getModelList()
+                .stream().map(TicketModel::getAsPojo)
+                .toArray(Ticket[]::new);
+
+        if (tickets.length == 0) return;
+        Archiver.archive(tickets);
     }
 }

@@ -76,7 +76,7 @@ public class EmployeePortalController extends Controller {
                 .setDepartmentId(getDepartmentId())
                 .setFirstName(firstNameField.getText())
                 .setLastName(lastNameField.getText())
-                .setCreatedOn(DateUtil.now());
+                .setCreatedOn(DateUtil.nowLocalDateTime());
 
         employeeProctor.create(employee);
         getNavigation().close(Route.EMPLOYEE_PORTAL);
