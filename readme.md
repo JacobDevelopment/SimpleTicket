@@ -68,8 +68,7 @@ To see the license, click <a href="https://github.com/JacobDevelopment/SimpleTic
 
 
 ## Todo(?)
-- [ ] Implement auto-archive/auto-delete tickets.
-- [ ] Implement ticket exporting (.JSON, CSV?, Unknown)
+- [X] Implement auto-archive tickets.
 - [ ] ~~Implement settings > reset to factory button.~~
 - [ ] Implement home screen with statistics.
 - [ ] Fix main icon badge to match current color schemes.
